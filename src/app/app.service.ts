@@ -7,7 +7,9 @@ export type InternalStateType = {
 @Injectable()
 export class AppState {
 
-  public _state: InternalStateType = { };
+  public _state: InternalStateType = {
+    
+  };
 
   // already return a clone of the current state
   public get state() {
@@ -31,6 +33,6 @@ export class AppState {
 
   private _clone(object: InternalStateType) {
     // simple object clone
-    return JSON.parse(JSON.stringify( object ));
+    return JSON.parse(JSON.stringify(object));
   }
 }

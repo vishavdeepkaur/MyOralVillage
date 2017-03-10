@@ -1,0 +1,28 @@
+<header></header>
+<!--<nav>
+    <a [routerLink]=" ['./'] " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        Index
+      </a>
+    <a [routerLink]=" ['./home'] " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        Home
+      </a>
+    <a [routerLink]=" ['./about'] " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        About
+      </a>
+</nav>-->
+
+<main>
+    <router-outlet></router-outlet>
+</main>
+
+<!--<pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>-->
+
+<footer class="card-footer">
+    <div class="container">
+        <div class="row">
+            <p>My Oral Village
+                <a [routerLink]="home">Home</a></p>
+        </div>
+    </div>
+
+</footer>
