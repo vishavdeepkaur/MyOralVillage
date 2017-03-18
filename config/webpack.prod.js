@@ -113,6 +113,10 @@ module.exports = function (env) {
           }),
           include: [helpers.root('src', 'styles')]
         },
+        // {
+        //   test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/,
+        //   loader: 'url-loader'
+        // }
 
       ]
 

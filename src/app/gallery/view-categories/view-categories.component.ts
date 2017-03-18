@@ -7,11 +7,11 @@ import { AppState } from '../../app.service';
  */
 
 @Component({
-  selector: 'gallery',
+  selector: 'view-categories',
   styleUrls: [
-    './gallery.component.css'
+    './view-categories.component.css'
   ],
-  templateUrl: `./gallery.component.html`
+  templateUrl: `./view-categories.component.html`
 
 })
 export class ViewCategoriesComponent implements OnInit {

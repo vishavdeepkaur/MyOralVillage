@@ -17,7 +17,7 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
-import { GalleryComponent } from './gallery';
+import { GalleryModule } from './gallery';
 import { HeaderModule } from './common/header';
 //import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
@@ -45,15 +45,15 @@ type StoreType = {
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
-    GalleryComponent,
     HomeComponent,
     NoContentComponent,
     XLargeDirective
   ],
   imports: [ // import Angular's modules
     BrowserModule,
+    GalleryModule,
     NgbModule.forRoot(),
-    HeaderModule,   
+    HeaderModule,       
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })

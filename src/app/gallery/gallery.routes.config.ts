@@ -1,8 +1,14 @@
 import { Routes } from '@angular/router'
 
 import { ViewContentComponent } from './view-content'
-import { ViewCategoriesComponent} from './view-categories'
+import { ViewCategoriesComponent } from './view-categories'
+import { GalleryComponent } from '.'
+
 export const routes: Routes = [
-    { path: 'view-content/:type/:subtype', component: ViewContentComponent },
-    { path: 'view-categories', component: ViewCategoriesComponent }
+    {
+        path: 'gallery', component: GalleryComponent, children: [         
+            { path: '', component: ViewCategoriesComponent },
+            { path: 'view-content/:category', component: ViewContentComponent },
+        ]
+    }
 ];

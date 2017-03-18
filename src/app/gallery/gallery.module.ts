@@ -5,11 +5,23 @@ import { GalleryComponent } from './gallery.component';
 import { ViewCategoriesComponent } from './view-categories';
 import { ViewContentComponent } from './view-content';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { routes } from './gallery.routes.config'
+import { ContentService } from '../services/content-service.service'
 
 
 @NgModule({
-    imports: [RouterModule, CommonModule, NgbModule],
-    declarations: [GalleryComponent, ViewCategoriesComponent, ViewContentComponent],
-    exports: []
+    imports: [
+        RouterModule,
+        CommonModule,
+        NgbModule,
+        RouterModule.forChild(routes)
+    ],
+    declarations: [
+        GalleryComponent, 
+        ViewCategoriesComponent, 
+        ViewContentComponent
+    ],
+    exports: [],
+    providers:[ContentService]
 })
 export class GalleryModule { }

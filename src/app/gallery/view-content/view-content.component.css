@@ -1,0 +1,28 @@
+
+.cg-items { 
+  padding: .5vw;
+  font-size: 0;
+  display: -ms-flexbox;
+  -ms-flex-wrap: wrap;
+  -ms-flex-direction: column;
+  -webkit-flex-flow: row wrap; 
+  flex-flow: row wrap; 
+  display: -webkit-box;
+  display: flex;
+}
+.cg-items .cg-item { 
+  -webkit-box-flex: auto;
+  -ms-flex: auto;
+  flex: auto; 
+  width: 200px; 
+  margin: .5vw; 
+}
+.cg-items .cg-item img { 
+  width: 100%; 
+  height: auto; 
+}
+@media screen and (max-width: 400px) {
+  .cg-items .cg-item { margin: 0; }
+  .cg-items { padding: 0; }
+  
+}

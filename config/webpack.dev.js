@@ -127,6 +127,11 @@ module.exports = function (options) {
           include: [helpers.root('src', 'styles')]
         },
 
+    //       {
+    //     test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/,
+    //     loader: 'url-loader'
+    // }
+
       ]
 
     },
