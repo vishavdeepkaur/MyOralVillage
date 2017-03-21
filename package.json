@@ -61,9 +61,9 @@
     "watch:prod": "npm run build:prod -- --watch",
     "watch:test": "npm run test -- --auto-watch --no-single-run",
     "watch": "npm run watch:dev",
-    "webdriver-manager": "node ./node_modules/protractor/bin/webdriver-manager",
-    "webdriver:start": "npm run webdriver-manager start",
-    "webdriver:update": "node ./node_modules/protractor/bin/webdriver-manager update",
+    "webdriver-manager": "node ./node_modules/protractor/webdriver-manager/bin",
+    "webdriver:start": "npm run webdriver-manager start", 
+    "webdriver:update": "node ./node_modules/protractor/webdriver-manager/bin update",
     "webpack-dev-server": "webpack-dev-server",
     "webpack": "webpack"
   },
