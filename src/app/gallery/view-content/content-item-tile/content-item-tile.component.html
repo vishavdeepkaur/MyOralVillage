@@ -1,0 +1,9 @@
+<div class="cg-item-inner" (click)="setSelectedItem($event)" [class.selected-item]="selection?.contentItem?.name == data.name">
+    <img [src]="data.source" alt>
+    <div class="cg-item-info">
+        {{data.name}} {{data.dateAdded}}
+    </div>
+</div>
+
+
+<!---->

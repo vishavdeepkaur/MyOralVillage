@@ -26,3 +26,39 @@ h3 {
 .card-footer {
     margin-top: 30px
 }
+
+//flex related
+.flex-corner {
+    display: flex;
+    justify-content: space-between
+}
+
+// LOGIN - SIGNUP
+#loginbox {
+    margin-top:40px;
+    .card {
+        a:hover {
+            cursor: pointer;
+        }
+        .login-header {
+            h3 {
+                margin: 0;
+            }
+            display:flex;
+            padding:10px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .text-bottom {
+            float: right;
+            font-size: 14px;
+        }
+        .control-button {
+            margin-top: 10px;
+            margin-bottom: 40px;
+            button {
+                width: 100%;
+            }
+        }
+    }
+}

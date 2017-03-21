@@ -19,6 +19,9 @@ export class ViewContentComponent implements OnInit {
   @Input() contentItems: ContentItemServer[];
   @Input() themes: Theme[];
   @Input() countries: Country[];
+  sidebarVisible: boolean = true;
+
+
 
   selection: Selection = {
     category: null,
@@ -55,16 +58,27 @@ export class ViewContentComponent implements OnInit {
   }
 
 
+
+
   // handlers
+  setSelectedItem($event) {
+    this.selection.contentItem = $event;
+  }
+
+
+  toggleSidebar() {
+    this.sidebarVisible = !this.sidebarVisible;
+  }
+
+  getContentItems({data}, {range, sortBy, sortAsc}) {
+
+  }
 
 
   setSortBy(event, field) {
     this.countries.sort()
   }
 
-  getContentItems({data}, {range,sortBy,sortAsc}){
-
-  }
 
   switchSort() {
     this.selection.sortAsc = !this.selection.sortAsc

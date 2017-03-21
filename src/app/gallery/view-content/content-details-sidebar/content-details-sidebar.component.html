@@ -1,0 +1,26 @@
+<div class="cg-sidebar" [@slideInOut]="visible ? 'visible' : 'hidden'" >
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a><i class="fa fa-close fa-2x"></i></a>
+            </div>
+            <div class="col-xs-12">
+
+                <div *ngIf="selectedItem">
+                    <h3>{{selectedItem.name}}</h3>
+                    <ul>
+                        <li>{{selectedItem.dateAdded}}</li>
+                        <li>{{selectedItem.type}}</li>
+                        <li>{{selectedItem.description}}</li>
+                    </ul>
+                </div>
+                <div *ngIf="!selectedItem">
+                    <p>Select an item to view its details</p>
+        
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

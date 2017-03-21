@@ -16,7 +16,11 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
+
 import { HomeComponent } from './home';
+import { LoginComponent } from './login-signup/login';
+
+
 import { GalleryModule } from './gallery';
 import { HeaderModule } from './common/header';
 //import { AboutComponent } from './about';
@@ -46,6 +50,7 @@ type StoreType = {
   declarations: [
     AppComponent,
     HomeComponent,
+    LoginComponent,
     NoContentComponent,
     XLargeDirective
   ],

@@ -1,28 +1,72 @@
+.default-controls {
+    display: flex
+}
+.default-controls > div {
+    margin-right: 40px;
+}
 
-.cg-items { 
-  padding: .5vw;
-  font-size: 0;
-  display: -ms-flexbox;
-  -ms-flex-wrap: wrap;
-  -ms-flex-direction: column;
-  -webkit-flex-flow: row wrap; 
-  flex-flow: row wrap; 
-  display: -webkit-box;
+.main-controls {
+    display: flex
+}
+
+.main-controls>div+div {
+    margin-left: 20px;
+}
+
+.sidebar-controls{
   display: flex;
 }
-.cg-items .cg-item { 
-  -webkit-box-flex: auto;
-  -ms-flex: auto;
-  flex: auto; 
-  width: 200px; 
-  margin: .5vw; 
+
+.cg-header-left>div{
+    margin-right: 50px;
 }
-.cg-items .cg-item img { 
-  width: 100%; 
-  height: auto; 
+
+
+
+.cg-body {
+    display: flex;
 }
+
+.cg-main-content {
+    flex-grow: 1;
+}
+
+.cg-items {
+    padding: .5vw;
+    font-size: 0;
+    display: -ms-flexbox;
+    -ms-flex-wrap: wrap;
+    -ms-flex-direction: column;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    display: -webkit-box;
+    display: flex;
+}
+
+.cg-items .cg-item {
+    position: relative;
+    -webkit-box-flex: auto;
+    -ms-flex: auto;
+    flex-grow: .20;
+    width: 200px;
+    height: 145px;
+    overflow: hidden;
+    margin: .5vw;
+}
+
+
+/*to be removed*/
+
+img {
+    width: 100%;
+    height: auto;
+}
+
 @media screen and (max-width: 400px) {
-  .cg-items .cg-item { margin: 0; }
-  .cg-items { padding: 0; }
-  
+    .cg-items .cg-item {
+        margin: 0;
+    }
+    .cg-items {
+        padding: 0;
+    }
 }

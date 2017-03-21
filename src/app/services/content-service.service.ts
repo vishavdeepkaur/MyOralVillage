@@ -13,7 +13,7 @@ export class ContentService {
 
     //   getSmallCollection(type) {
     //     //   let resultType = <Theme | Category | Country>{};
-    //     return this.http.get(`/api/${type}`)
+    //     return this.http.get(`/api/collections/${type}`)
     //       .map((response: Response) => {
     //         return response.json()
     //       }).catch(this.handleError);
