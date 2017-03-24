@@ -1,4 +1,4 @@
-import { Component, OnInit ,Input, Output ,EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AppState } from '../../../app.service';
 import { ContentService, Selection, Category, ContentItemServer, ContentItemBase, Theme, Country } from '../../../services';
 
@@ -10,20 +10,25 @@ import { ContentService, Selection, Category, ContentItemServer, ContentItemBase
 
 })
 export class ContentItemTile implements OnInit {
- @Input() data : ContentItemServer;
- @Input() selection : ContentItemServer;
- @Output() setSelected =  new EventEmitter();
+  @Input() data: ContentItemServer;
+  @Input() selection: Selection;
+  @Output() setSelected = new EventEmitter();
+  @Output() edit = new EventEmitter();
 
   constructor(
     public appState: AppState
   ) { }
 
   public ngOnInit() {
-    
+
   }
 
-  public setSelectedItem(event){
+  public setSelectedItem(event) {
     this.setSelected.emit(this.data)
+  }
+
+  public editItem() {
+    this.edit.emit(this.data)
   }
 
 }

@@ -1,3 +1,4 @@
+// essential imports
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -5,28 +6,40 @@ import { NgModule, ApplicationRef } from '@angular/core';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 
+
+// ngBootstrap module
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { SimpleNotificationsModule } from 'angular2-notifications'
 /*
  * Platform and Environment providers/directives/pipes
  */
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
+
+
+// MODULES
+import { GalleryModule } from './gallery';
+import { HeaderModule } from './common/header';
+
+
+
 // App is our top level component
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 
+
+// Bare Components - will add to modules later
 import { HomeComponent } from './home';
 import { LoginComponent } from './login-signup/login';
-
-
-import { GalleryModule } from './gallery';
-import { HeaderModule } from './common/header';
-//import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
+
+
 import { XLargeDirective } from './home/x-large';
 
+
+// styles 
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
@@ -61,7 +74,8 @@ type StoreType = {
     HeaderModule,       
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
+    SimpleNotificationsModule.forRoot()
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,

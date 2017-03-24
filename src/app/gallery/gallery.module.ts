@@ -9,6 +9,10 @@ import { routes } from './gallery.routes.config'
 import { GalleryComponent } from './gallery.component';
 import { ViewCategoriesComponent } from './view-categories';
 import { ViewContentComponent } from './view-content';
+import { AddContentModal } from './view-content/modals/add-content-modal';
+import { EditContentModal } from './view-content/modals/edit-content-modal';
+
+
 import { ContentItemTile } from './view-content/content-item-tile';
 import { ContentDetailsSidebar } from './view-content/content-details-sidebar';
 
@@ -17,6 +21,7 @@ import { ContentService } from '../services/content-service.service'
 
 
 @NgModule({
+    entryComponents: [AddContentModal,EditContentModal],
     imports: [
         RouterModule,
         CommonModule,
@@ -24,13 +29,16 @@ import { ContentService } from '../services/content-service.service'
         RouterModule.forChild(routes)
     ],
     declarations: [
-        GalleryComponent, 
-        ViewCategoriesComponent, 
+        GalleryComponent,
+        ViewCategoriesComponent,
         ViewContentComponent,
+        AddContentModal,
+        EditContentModal,
         ContentItemTile,
         ContentDetailsSidebar
+
     ],
     exports: [],
-    providers:[ContentService]
+    providers: [ContentService]
 })
 export class GalleryModule { }

@@ -1,4 +1,6 @@
 .cg-sidebar{
     width:200px;
     overflow: hidden;
+    height: 100%;
+    background-color: whitesmoke;
 }

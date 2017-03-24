@@ -1,0 +1,58 @@
+<div class="modal-header">
+    <h4 class="modal-title">Add Content Item(s)</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+</div>
+<div class="modal-body">
+
+    <form (submit)="addContentItem($event)">
+
+
+        <div class="form-group">
+            <label for="name">Item Name: </label>
+            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter Name">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" placeholder="Description"></textarea>
+        </div>
+
+
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select class="form-control" id="category" aria-describedby="category">
+                <option value="designs">Designs</option>    
+                <option value="wireframes">wireframes</option>                    
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="country">Country</label>
+            <select class="form-control" id="country" aria-describedby="country" value="{{contentItem.country}}">
+                 <option value="designs">Canada</option>         
+             </select>
+        </div>
+
+        <div class="form-group">
+            <label for="theme">Theme</label>
+            <select class="form-control" id="theme" aria-describedby="theme" value="{{contentItem.theme}}">
+                  <option value="theme">money</option>         
+             </select>
+        </div>
+
+        <div class="form-group">
+            <label for="tag">Tags</label>
+            <input type="text" class="form-control" id="tag" aria-describedby="tag" placeholder="Enter tags" value="{{contentItem.tag}}">
+        </div>
+
+
+        <small id="name" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">Close</button>
+    <button type="button" class="btn btn-success" (click)="activeModal.close('Close click')">Close</button>
+</div>

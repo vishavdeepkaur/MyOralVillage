@@ -2,6 +2,10 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppState } from '../../app.service';
 import { ContentService, Selection, Category, ContentItemServer, ContentItemBase, Theme, Country } from '../../services';
+import { NotificationsService } from 'angular2-notifications'
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddContentModal } from './modals/add-content-modal'
+import { EditContentModal } from './modals/edit-content-modal'
 /*
  * App Component
  * Top Level Component
@@ -22,7 +26,6 @@ export class ViewContentComponent implements OnInit {
   sidebarVisible: boolean = true;
 
 
-
   selection: Selection = {
     category: null,
     contentItem: null,
@@ -39,8 +42,25 @@ export class ViewContentComponent implements OnInit {
   constructor(
     public appState: AppState,
     private activeRoute: ActivatedRoute,
-    private contentService: ContentService
+    private contentService: ContentService,
+    private notificationService: NotificationsService,
+    private modalService: NgbModal
   ) { }
+
+  openAdd() {
+    const modalRef = this.modalService.open(AddContentModal);
+    modalRef.componentInstance.countries = this.countries;
+    modalRef.componentInstance.themes = this.themes;
+    modalRef.componentInstance.categories = this.categories;
+  }
+  openEdit(data) {
+    const modalRef = this.modalService.open(EditContentModal);
+    modalRef.componentInstance.contentItem = data;
+    modalRef.componentInstance.countries = this.countries;
+    modalRef.componentInstance.themes = this.themes;
+    modalRef.componentInstance.categories = this.categories;
+  }
+
 
   public ngOnInit() {
     this.subscription = this.activeRoute.params.subscribe((value: any) => {
@@ -58,19 +78,28 @@ export class ViewContentComponent implements OnInit {
   }
 
 
-
-
   // handlers
+  addContentItem(itemData) {
+
+  }
+
+  editItem($event) {
+    console.log($event)
+    this.openEdit($event)
+  }
+
+
+
   setSelectedItem($event) {
     this.selection.contentItem = $event;
   }
 
-
   toggleSidebar() {
     this.sidebarVisible = !this.sidebarVisible;
+    this.notificationService.alert("sidebar state changed", this.sidebarVisible ? 'Now Visible' : 'Now Hidden');
   }
 
-  getContentItems({data}, {range, sortBy, sortAsc}) {
+  getContentItems({data}, {skip, max, sortBy, sortAsc}) {
 
   }
 
@@ -79,8 +108,7 @@ export class ViewContentComponent implements OnInit {
     this.countries.sort()
   }
 
-
-  switchSort() {
+  switchSortOrder() {
     this.selection.sortAsc = !this.selection.sortAsc
   }
 

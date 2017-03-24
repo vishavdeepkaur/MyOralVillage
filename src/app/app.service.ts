@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 
 export type InternalStateType = {
-  [key: string]: any
+  [key: string]: any,
 };
 
 @Injectable()
 export class AppState {
 
   public _state: InternalStateType = {
-    
+    user: { username: "vishu", email:"vishu@gmail.com"}
   };
 
   // already return a clone of the current state

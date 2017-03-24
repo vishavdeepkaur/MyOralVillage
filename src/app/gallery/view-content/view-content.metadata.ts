@@ -3,17 +3,17 @@ export class ContentItemBase {
     type: string
     description: string
     postedBy : string
+    dateAdded: string
     theme : Theme
     category: Category
-    countries : Country[]
+    country : Country
     tag : string[]
 }
 
 export class ContentItemServer extends ContentItemBase{
     id:string
     source:string
-    icon: string
-    state:string    
+    icon: string  
 }
 
 

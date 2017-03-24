@@ -51,10 +51,8 @@ export default {
     theme: { id: 1, name: "monetization" },
     category: { id: 1, name: "design" },
     tags: ["money", "poverty"],
-    countries: [
-      { id: 1, name: "india" },
-      { id: 5, name: "tanzania" }
-    ]
+    country: { id: 1, name: "india" }
+
   },
   {
     id: 2,
@@ -69,10 +67,9 @@ export default {
     theme: { id: 1, name: "monetization" },
     category: { id: 1, name: "design" },
     tags: ["money", "poverty"],
-    countries: [
-      { id: 1, name: "india" },
+    country: { id: 1, name: "india" }
 
-    ]
+
 
   },
   {
@@ -88,10 +85,9 @@ export default {
     theme: { id: 1, name: "monetization" },
     category: { id: 1, name: "design" },
     tags: ["money", "poverty"],
-    countries: [
-      { id: 1, name: "tanzania" },
+    country: { id: 1, name: "tanzania" }
 
-    ]
+
 
   },
   {
@@ -107,10 +103,9 @@ export default {
     theme: { id: 1, name: "monetization" },
     category: { id: 1, name: "design" },
     tags: ["money", "poverty", "bills"],
-    countries: [
-      { id: 1, name: "bangladesh" },
+    country: { id: 1, name: "bangladesh" }
 
-    ]
+
 
   },
   {
@@ -126,10 +121,9 @@ export default {
     theme: { id: 1, name: "monetization" },
     category: { id: 1, name: "design" },
     tags: ["money", "poverty"],
-    countries: [
-      { id: 1, name: "bangladesh" },
+    country: { id: 1, name: "bangladesh" }
 
-    ]
+
 
   },
   {
@@ -145,10 +139,9 @@ export default {
     theme: { id: 1, name: "monetization" },
     category: { id: 1, name: "design" },
     tags: ["money", "poverty"],
-    countries: [
-      { id: 1, name: "tanzania" },
+    country: { id: 1, name: "tanzania" },
 
-    ]
+
 
   }]
 

@@ -6,7 +6,7 @@
                 <div class="cg-header-left flex-corner">
                     <div class="main-controls">
                         <div>
-                            <Button class="btn btn-success"><span class="fa fa-plus" aria-hidden="true"></span></Button>
+                            <Button class="btn btn-success" (click)="open()"><span class="fa fa-plus" aria-hidden="true"></span></Button>
                         </div>
                         <div>
                             <Button class="btn btn-danger"><span class="fa fa-trash" aria-hidden="true"></span></Button>
@@ -35,7 +35,7 @@
                             </div>
                         </div>
 
-                        <button (click)="switchSort()" class="btn btn-secondary"><span class="{{selection.sortAsc ? 'fa fa-sort-alpha-asc' : 'fa fa-sort-alpha-desc'}}" aria-hidden="true"></span></button>
+                        <button (click)="switchSortOrder()" class="btn btn-secondary"><span class="{{selection.sortAsc ? 'fa fa-sort-alpha-asc' : 'fa fa-sort-alpha-desc'}}" aria-hidden="true"></span></button>
 
                     </div>
 
@@ -55,7 +55,7 @@
                         <div class="cg-item"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/jeremiah-wilson-5.jpg" alt></div>-->
 
                         <div class="cg-item" content-item-tile *ngFor="let item of contentItems" [data]="item" (setSelected)="setSelectedItem($event)"
-                            [selection]="selection"></div>
+                            [selection]="selection" (edit)="editItem($event)"></div>
 
                         <!--<div class="cg-item" *ngFor="let item of contentItems"><img [src]="item.source" alt></div>-->
 

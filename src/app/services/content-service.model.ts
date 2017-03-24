@@ -13,7 +13,7 @@ export class ContentItemBase {
     dateAdded: string
     theme : Theme
     category: Category
-    countries : Country[]
+    country : Country
     tags : string[]
 }
 
