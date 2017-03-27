@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { ContentItemBase } from '../../view-content.metadata'
+import { ContentItemBase } from '../../../../services/content-service.model'
 import { AppState } from '../../../../app.service'
 
 @Component({
@@ -23,7 +23,7 @@ export class AddContentModal {
 
     addContentItem(event) {
         let data = {
-            name: event.target.name.value,
+            title: event.target.name.value,
             description: event.target.description.value,
             postedBy: this.appState.get("user").username,
             dateAdded: new Date().toLocaleDateString(),

@@ -14,9 +14,9 @@ export class ContentService {
 
     //   getSmallCollection(type) {
     //     //   let resultType = <Theme | Category | Country>{};
-    //     return this.http.get(`/api/collections/${type}`)
+    //     return this.http.get(`/api/${type}`)
     //       .map((response: Response) => {
-    //         return response.json()
+    //         return response.json();
     //       }).catch(this.handleError);
     //   }
 
@@ -48,17 +48,17 @@ export class ContentService {
     //       }).catch(this.handleError);
     //   }
 
-    // addContentItem(itemData: any) {
-    //     let headers = new Headers({ 'Content-Type': 'application/json' });
-    //     let options = new RequestOptions({ headers: headers });
+    addContentItem(itemData: any) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
 
-    //     var ret = this.http.post("/api/contentItems", JSON.stringify(itemData), options);
-    //     return ret.map((response: Response) => {
-    //         var returnedData = response.json();
-    //         return returnedData;
-    //     }).catch(this.handleError);
+        var ret = this.http.post("/api/document/new", JSON.stringify(itemData), options);
+        return ret.map((response: Response) => {
+            var returnedData = response.json();
+            return returnedData;
+        }).catch(this.handleError);
 
-    // }
+    }
 
 
     searchSessions(searchTerm: string) {

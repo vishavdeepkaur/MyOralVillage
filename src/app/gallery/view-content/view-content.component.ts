@@ -69,10 +69,13 @@ export class ViewContentComponent implements OnInit {
       console.log(value);
     })
 
-    this.categories = this.contentService.getSmallCollection("categories").sort((x) => x[this.selection.sortBy]);
+    //     this.contentService.getSmallCollection("categories").subscribe(result => { this.categories = result})
+    // this.contentService.getSmallCollection("themes").subscribe(result => { this.themes = result})
+    // this.contentService.getSmallCollection("countries").subscribe(result => { this.countries = result})
+    
+    this.categories = this.contentService.getSmallCollection("categories")
     this.themes = this.contentService.getSmallCollection("themes");
-    this.countries = this.contentService.getSmallCollection("countries").sort((x, y) => x[this.selection.sortBy] > y[this.selection.sortBy]);
-    console.log(this.countries)
+    this.countries = this.contentService.getSmallCollection("countries")
     this.contentItems = this.contentService.getContentItems();
 
   }

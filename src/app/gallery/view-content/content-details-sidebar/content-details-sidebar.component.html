@@ -6,7 +6,7 @@
                 <div *ngIf="selectedItem">
                     <h3>{{selectedItem.name}}</h3>
                     <ul>
-                        <li>{{selectedItem.dateAdded}}</li>
+                        <li>{{selectedItem.dateAdded | date:'mediumDate'}}</li>
                         <li>{{selectedItem.type}}</li>
                         <li>{{selectedItem.description}}</li>
                     </ul>
