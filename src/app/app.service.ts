@@ -8,7 +8,14 @@ export type InternalStateType = {
 export class AppState {
 
   public _state: InternalStateType = {
-    user: { username: "vishu", email:"vishu@gmail.com"}
+    user: null
+    // {
+    //   username: "vishu",
+    //   firstName: "Vishavdeep",
+    //   lastName: "Kaur",
+    //   email: "vishu@gmail.com",
+    //   role: "admin"
+    // },
   };
 
   // already return a clone of the current state

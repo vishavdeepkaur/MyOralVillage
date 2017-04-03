@@ -27,8 +27,11 @@
       "webpack"
     ]
   },
-  "exclude": [
+  "exclude": [    
     "node_modules",
+    "compiled",
+    "typings/main.d.ts",
+    "typings/main",
     "dist"
   ],
   "awesomeTypescriptLoaderOptions": {

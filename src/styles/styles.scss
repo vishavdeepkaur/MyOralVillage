@@ -9,6 +9,60 @@ h3 {
     margin-top: 30px
 }
 
+// Loading 
+$base-line-height: 24px;
+$white: rgb(255, 255, 255);
+$off-white: rgba($white, 0.2);
+$spin-duration: 1s;
+$pulse-duration: 750ms;
+@keyframes pulse {
+    50% {
+        background: gray;
+    }
+}
+
+
+// .loading {
+//     border-radius: 50%;
+//     width: $base-line-height;
+//     height: $base-line-height;
+//     border: .25rem solid $off-white;
+//     border-top-color: $white;
+//     animation: spin $spin-duration infinite linear;
+//     &--double {
+//         border-style: double;
+//         border-width: .5rem;
+//     }
+// }
+
+.loading-pulse {
+    position: relative;
+    width: ($base-line-height / 4);
+    height: $base-line-height;
+    background: $off-white;
+    animation: pulse $pulse-duration infinite;
+    animation-delay: ($pulse-duration / 3);
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: ($base-line-height / 1.5);
+        width: ($base-line-height / 4);
+        background: $off-white;
+        top: 50%;
+        transform: translateY(-50%);
+        animation: pulse $pulse-duration infinite;
+    }
+    &:before {
+        left: -($base-line-height / 2);
+    }
+    &:after {
+        left: ($base-line-height / 2);
+        animation-delay: ($pulse-duration / 1.5);
+    }
+}
+
 .gallery {
     .card {
         .card-title {
@@ -35,7 +89,7 @@ h3 {
 
 // LOGIN - SIGNUP
 #loginbox {
-    margin-top:40px;
+    margin-top: 40px;
     .card {
         a:hover {
             cursor: pointer;

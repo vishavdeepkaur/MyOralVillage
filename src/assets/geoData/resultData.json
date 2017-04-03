@@ -1,0 +1,516 @@
+{
+    "result": [{
+            "Country": "Afghanistan",
+            "population": 32,
+            "subscriptionsPerHundred": 74.9,
+            "Adults": 10899,
+            "percentIlliterateWomen": "61%",
+            "percentIlliterateYouth": "26%",
+            "fi": "10%"
+        },
+        {
+            "Country": "Angola",
+            "population": 24.2,
+            "subscriptionsPerHundred": 63.5,
+            "Adults": 3491,
+            "percentIlliterateWomen": "69%",
+            "percentIlliterateYouth": "35%",
+            "fi": "29%"
+        },
+        {
+            "Country": "Armenia",
+            "population": 3,
+            "subscriptionsPerHundred": 115.9,
+            "Adults": 8,
+            "percentIlliterateWomen": "61%",
+            "percentIlliterateYouth": "13%",
+            "fi": "17%"
+        },
+        {
+            "Country": "Bangladesh",
+            "population": 159.1,
+            "subscriptionsPerHundred": 75.9,
+            "Adults": 43819,
+            "percentIlliterateWomen": "54%",
+            "percentIlliterateYouth": "12%",
+            "fi": "29%"
+        },
+        {
+            "Country": "Bolivia",
+            "population": 10.6,
+            "subscriptionsPerHundred": 96.3,
+            "Adults": 316,
+            "percentIlliterateWomen": "75%",
+            "percentIlliterateYouth": "7%",
+            "fi": "41%"
+        },
+        {
+            "Country": "Brazil",
+            "population": 203.7,
+            "subscriptionsPerHundred": 139,
+            "Adults": 11611,
+            "percentIlliterateWomen": "49%",
+            "percentIlliterateYouth": "3%",
+            "fi": "68%"
+        },
+        {
+            "Country": "Burkina Faso",
+            "population": 17.9,
+            "subscriptionsPerHundred": 71.7,
+            "Adults": 6302,
+            "percentIlliterateWomen": "56%",
+            "percentIlliterateYouth": "31%",
+            "fi": "13%"
+        },
+        {
+            "Country": "Cambodia",
+            "population": 15.3,
+            "subscriptionsPerHundred": 155.1,
+            "Adults": 2466,
+            "percentIlliterateWomen": "67%",
+            "percentIlliterateYouth": "10%",
+            "fi": "13%"
+        },
+        {
+            "Country": "Cameroon",
+            "population": 22.8,
+            "subscriptionsPerHundred": 75.7,
+            "Adults": 3363,
+            "percentIlliterateWomen": "63%",
+            "percentIlliterateYouth": "23%",
+            "fi": "11%"
+        },
+        {
+            "Country": "China",
+            "population": 1364.3,
+            "subscriptionsPerHundred": 92.3,
+            "Adults": 41572,
+            "percentIlliterateWomen": "74%",
+            "percentIlliterateYouth": "1%",
+            "fi": "79%"
+        },
+        {
+            "Country": "Columbia",
+            "population": 47.8,
+            "subscriptionsPerHundred": 113.1,
+            "Adults": 1925,
+            "percentIlliterateWomen": "51%",
+            "percentIlliterateYouth": "6%",
+            "fi": "38%"
+        },
+        {
+            "Country": "Cote D'Ivoire",
+            "population": 22.2,
+            "subscriptionsPerHundred": 106.2,
+            "Adults": 7148,
+            "percentIlliterateWomen": "58%",
+            "percentIlliterateYouth": "30%",
+            "fi": "15%"
+        },
+        {
+            "Country": "Dominican Republic",
+            "population": 10.4,
+            "subscriptionsPerHundred": 78.9,
+            "Adults": 616,
+            "percentIlliterateWomen": "47%",
+            "percentIlliterateYouth": "6%",
+            "fi": "54%"
+        },
+        {
+            "Country": "DRC",
+            "population": 71.2,
+            "subscriptionsPerHundred": 53.5,
+            "Adults": 14295,
+            "percentIlliterateWomen": "70%",
+            "percentIlliterateYouth": "31%",
+            "fi": "0%"
+        },
+        {
+            "Country": "Ecuador",
+            "population": 15.9,
+            "subscriptionsPerHundred": 103.9,
+            "Adults": 636,
+            "percentIlliterateWomen": "59%",
+            "percentIlliterateYouth": "5%",
+            "fi": "46%"
+        },
+        {
+            "Country": "Egypt",
+            "population": 89.6,
+            "subscriptionsPerHundred": 114.3,
+            "Adults": 15374,
+            "percentIlliterateWomen": "66%",
+            "percentIlliterateYouth": "9%",
+            "fi": "14%"
+        },
+        {
+            "Country": "El Salvador",
+            "population": 6.1,
+            "subscriptionsPerHundred": 144,
+            "Adults": 549,
+            "percentIlliterateWomen": "63%",
+            "percentIlliterateYouth": "6%",
+            "fi": "35%"
+        },
+        {
+            "Country": "Ethiopia",
+            "population": 98.9,
+            "subscriptionsPerHundred": 31.6,
+            "Adults": 29501,
+            "percentIlliterateWomen": "58%",
+            "percentIlliterateYouth": "22%",
+            "fi": "0%"
+        },
+        {
+            "Country": "Ghana",
+            "population": 26.8,
+            "subscriptionsPerHundred": 114.8,
+            "Adults": 3918,
+            "percentIlliterateWomen": "63%",
+            "percentIlliterateYouth": "13%",
+            "fi": "35%"
+        },
+        {
+            "Country": "Guatemala",
+            "population": 16,
+            "subscriptionsPerHundred": 106.6,
+            "Adults": 1810,
+            "percentIlliterateWomen": "68%",
+            "percentIlliterateYouth": "9%",
+            "fi": "41%"
+        },
+        {
+            "Country": "Haiti",
+            "population": 10.6,
+            "subscriptionsPerHundred": 64.7,
+            "Adults": 2741,
+            "percentIlliterateWomen": "56%",
+            "percentIlliterateYouth": "14%",
+            "fi": "18%"
+        },
+        {
+            "Country": "Honduras",
+            "population": 8,
+            "subscriptionsPerHundred": 93.5,
+            "Adults": 637,
+            "percentIlliterateWomen": "50%",
+            "percentIlliterateYouth": "8%",
+            "fi": "30%"
+        },
+        {
+            "Country": "India",
+            "population": 1282.4,
+            "subscriptionsPerHundred": 74.5,
+            "Adults": 264222,
+            "percentIlliterateWomen": "67%",
+            "percentIlliterateYouth": "9%",
+            "fi": "53%"
+        },
+        {
+            "Country": "Indonesia",
+            "population": 254.5,
+            "subscriptionsPerHundred": 126.2,
+            "Adults": 11255,
+            "percentIlliterateWomen": "69%",
+            "percentIlliterateYouth": "4%",
+            "fi": "36%"
+        },
+        {
+            "Country": "Jamaica",
+            "population": 2.7,
+            "subscriptionsPerHundred": 102.9,
+            "Adults": 235,
+            "percentIlliterateWomen": "31%",
+            "percentIlliterateYouth": "8%",
+            "fi": "78%"
+        },
+        {
+            "Country": "Kenya",
+            "population": 44.9,
+            "subscriptionsPerHundred": 73.8,
+            "Adults": 5995,
+            "percentIlliterateWomen": "57%",
+            "percentIlliterateYouth": "21%",
+            "fi": "55%"
+        },
+        {
+            "Country": "Lebanon",
+            "population": 4.5,
+            "subscriptionsPerHundred": 88.3,
+            "Adults": 247,
+            "percentIlliterateWomen": "66%",
+            "percentIlliterateYouth": "4%",
+            "fi": "47%"
+        },
+        {
+            "Country": "Liberia",
+            "population": 4.4,
+            "subscriptionsPerHundred": 73.4,
+            "Adults": 1361,
+            "percentIlliterateWomen": "64%",
+            "percentIlliterateYouth": "29%",
+            "fi": "n/a"
+        },
+        {
+            "Country": "Madagascar",
+            "population": 23.6,
+            "subscriptionsPerHundred": 38.2,
+            "Adults": 4993,
+            "percentIlliterateWomen": "53%",
+            "percentIlliterateYouth": "35%",
+            "fi": "6%"
+        },
+        {
+            "Country": "Mali",
+            "population": 16.3,
+            "subscriptionsPerHundred": 149,
+            "Adults": 5228,
+            "percentIlliterateWomen": "58%",
+            "percentIlliterateYouth": "27%",
+            "fi": "13%"
+        },
+        {
+            "Country": "Mexico",
+            "population": 125.4,
+            "subscriptionsPerHundred": 82.5,
+            "Adults": 4414,
+            "percentIlliterateWomen": "62%",
+            "percentIlliterateYouth": "5%",
+            "fi": "39%"
+        },
+        {
+            "Country": "Morocco",
+            "population": 33.9,
+            "subscriptionsPerHundred": 131.7,
+            "Adults": 7711,
+            "percentIlliterateWomen": "67%",
+            "percentIlliterateYouth": "13%",
+            "fi": "n/a"
+        },
+        {
+            "Country": "Myanmar",
+            "population": 53.4,
+            "subscriptionsPerHundred": 49.5,
+            "Adults": 2836,
+            "percentIlliterateWomen": "66%",
+            "percentIlliterateYouth": "12%",
+            "fi": "23%"
+        },
+        {
+            "Country": "Nepal",
+            "population": 28.2,
+            "subscriptionsPerHundred": 82.5,
+            "Adults": 6873,
+            "percentIlliterateWomen": "69%",
+            "percentIlliterateYouth": "11%",
+            "fi": "34%"
+        },
+        {
+            "Country": "Niger",
+            "population": 19.1,
+            "subscriptionsPerHundred": 44.4,
+            "Adults": 7773,
+            "percentIlliterateWomen": "55%",
+            "percentIlliterateYouth": "33%",
+            "fi": "4%"
+        },
+        {
+            "Country": "Nigeria",
+            "population": 177.5,
+            "subscriptionsPerHundred": 77.8,
+            "Adults": 41262,
+            "percentIlliterateWomen": "61%",
+            "percentIlliterateYouth": "23%",
+            "fi": "44%"
+        },
+        {
+            "Country": "Pakistan",
+            "population": 185,
+            "subscriptionsPerHundred": 73.3,
+            "Adults": 53154,
+            "percentIlliterateWomen": "63%",
+            "percentIlliterateYouth": "19%",
+            "fi": "9%"
+        },
+        {
+            "Country": "Papua New Guinea",
+            "population": 7.5,
+            "subscriptionsPerHundred": 44.9,
+            "Adults": 1715,
+            "percentIlliterateWomen": "51%",
+            "percentIlliterateYouth": "24%",
+            "fi": "n/a"
+        },
+        {
+            "Country": "Peru",
+            "population": 31,
+            "subscriptionsPerHundred": 102.9,
+            "Adults": 1239,
+            "percentIlliterateWomen": "75%",
+            "percentIlliterateYouth": "5%",
+            "fi": "29%"
+        },
+        {
+            "Country": "Philippines",
+            "population": 99.1,
+            "subscriptionsPerHundred": 111.2,
+            "Adults": 2516,
+            "percentIlliterateWomen": "44%",
+            "percentIlliterateYouth": "16%",
+            "fi": "28%"
+        },
+        {
+            "Country": "Russia",
+            "population": 146.6,
+            "subscriptionsPerHundred": 0,
+            "Adults": 331,
+            "percentIlliterateWomen": "56%",
+            "percentIlliterateYouth": "14%",
+            "fi": "0%"
+        },
+        {
+            "Country": "Samoa",
+            "population": 0.2,
+            "subscriptionsPerHundred": 55.5,
+            "Adults": 1,
+            "percentIlliterateWomen": "56%",
+            "percentIlliterateYouth": "20%",
+            "fi": "n/a"
+        },
+        {
+            "Country": "Senegal",
+            "population": 14.7,
+            "subscriptionsPerHundred": 98.8,
+            "Adults": 3592,
+            "percentIlliterateWomen": "66%",
+            "percentIlliterateYouth": "22%",
+            "fi": "12%"
+        },
+        {
+            "Country": "Solomon Islands",
+            "population": 0.6,
+            "subscriptionsPerHundred": 65.8,
+            "Adults": "n/a",
+            "percentIlliterateWomen": "n/a",
+            "percentIlliterateYouth": "n/a",
+            "fi": "n/a"
+        },
+        {
+            "Country": "South Africa",
+            "population": 54,
+            "subscriptionsPerHundred": 149.7,
+            "Adults": 2168,
+            "percentIlliterateWomen": "62%",
+            "percentIlliterateYouth": "4%",
+            "fi": "69%"
+        },
+        {
+            "Country": "St. Vincent & Grenadines",
+            "population": 0.1,
+            "subscriptionsPerHundred": 105.2,
+            "Adults": "n/a",
+            "percentIlliterateWomen": "n/a",
+            "percentIlliterateYouth": "n/a",
+            "fi": "n/a"
+        },
+        {
+            "Country": "Sudan",
+            "population": 39.4,
+            "subscriptionsPerHundred": 72.2,
+            "Adults": 5681,
+            "percentIlliterateWomen": "65%",
+            "percentIlliterateYouth": "15%",
+            "fi": "15%"
+        },
+        {
+            "Country": "Tajikistan",
+            "population": 8.3,
+            "subscriptionsPerHundred": 95.1,
+            "Adults": 12,
+            "percentIlliterateWomen": "62%",
+            "percentIlliterateYouth": "17%",
+            "fi": "12%"
+        },
+        {
+            "Country": "Tanzania",
+            "population": 51.8,
+            "subscriptionsPerHundred": 62.8,
+            "Adults": 8501,
+            "percentIlliterateWomen": "59%",
+            "percentIlliterateYouth": "28%",
+            "fi": "19%"
+        },
+        {
+            "Country": "Thailand",
+            "population": 67.7,
+            "subscriptionsPerHundred": 144.4,
+            "Adults": 1855,
+            "percentIlliterateWomen": "51%",
+            "percentIlliterateYouth": "9%",
+            "fi": "78%"
+        },
+        {
+            "Country": "Timor-Leste",
+            "population": 1.2,
+            "subscriptionsPerHundred": 58.7,
+            "Adults": 210,
+            "percentIlliterateWomen": "55%",
+            "percentIlliterateYouth": "24%",
+            "fi": "n/a"
+        },
+        {
+            "Country": "Tonga",
+            "population": 0.1,
+            "subscriptionsPerHundred": 64.3,
+            "Adults": 0,
+            "percentIlliterateWomen": "47%",
+            "percentIlliterateYouth": "25%",
+            "fi": "n/a"
+        },
+        {
+            "Country": "Uganda",
+            "population": 37.8,
+            "subscriptionsPerHundred": 52.4,
+            "Adults": 4517,
+            "percentIlliterateWomen": "66%",
+            "percentIlliterateYouth": "17%",
+            "fi": "28%"
+        },
+        {
+            "Country": "Vietnam",
+            "population": 90.7,
+            "subscriptionsPerHundred": 147.1,
+            "Adults": 3979,
+            "percentIlliterateWomen": "67%",
+            "percentIlliterateYouth": "8%",
+            "fi": "31%"
+        },
+        {
+            "Country": "Yemen",
+            "population": 26.2,
+            "subscriptionsPerHundred": 68.5,
+            "Adults": 4653,
+            "percentIlliterateWomen": "75%",
+            "percentIlliterateYouth": "12%",
+            "fi": "6%"
+        },
+        {
+            "Country": "Zambia",
+            "population": 15.7,
+            "subscriptionsPerHundred": 67.3,
+            "Adults": 3051,
+            "percentIlliterateWomen": "61%",
+            "percentIlliterateYouth": "34%",
+            "fi": "31%"
+        },
+        {
+            "Country": "Totals",
+            "population": 5224.9,
+            "subscriptionsPerHundred": 4920.2,
+            "Adults": 664577,
+            "percentIlliterateWomen": "",
+            "percentIlliterateYouth": "13%",
+            "fi": ""
+        }
+    ]
+}

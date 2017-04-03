@@ -1,0 +1,19 @@
+.chloropeth {
+  width: 100%;
+  height: 800px;
+}
+
+.chloropeth .axis path,
+.chloropeth .axis line {
+  stroke: #999;
+}
+
+.counties {
+  fill: darkslategray;
+}
+
+.states {
+  fill: deepskyblue;
+  /*stroke: pink;*/
+  stroke-linejoin: round;
+}

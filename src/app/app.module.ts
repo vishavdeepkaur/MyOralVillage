@@ -2,25 +2,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { NgModule, ApplicationRef } from '@angular/core';
+import { NgModule, ApplicationRef, APP_INITIALIZER } from '@angular/core';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 
 
 // ngBootstrap module
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+// Notification module
 import { SimpleNotificationsModule } from 'angular2-notifications'
+
 /*
  * Platform and Environment providers/directives/pipes
  */
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
 
+// Fake backend 
+import { fakeBackendProvider } from './helpers/fake-auth-backend';
+import { MockBackend, MockConnection } from '@angular/http/testing';
+import { BaseRequestOptions } from '@angular/http';
+
+// Service Providers
+import { AuthenticationService, ContentService, UserService, AlertService } from './services';
+
+//Guards
+import { AuthGuard } from './guards'
 
 // MODULES
-import { GalleryModule } from './gallery';
-import { HeaderModule } from './common/header';
+import { GalleryModule } from './modules/gallery';
+import { DataVisualsModule } from './modules/data-visuals';
+import { AdminPanelModule } from './modules/admin-panel';
 
 
 
@@ -31,12 +43,14 @@ import { AppState, InternalStateType } from './app.service';
 
 
 // Bare Components - will add to modules later
-import { HomeComponent } from './home';
-import { LoginComponent } from './login-signup/login';
-import { NoContentComponent } from './no-content';
+import { HeaderComponent } from './components/common/header';
+import { HomeComponent } from './components/home';
+import { LoginComponent } from './components/login';
+import { RegisterComponent } from './components/register';
+import { NoContentComponent } from './components/no-content';
 
 
-import { XLargeDirective } from './home/x-large';
+import { XLargeDirective } from './directives/x-large';
 
 
 // styles 
@@ -46,7 +60,12 @@ import '../styles/headings.css';
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
-  AppState
+  AppState,
+  AuthGuard,
+  AuthenticationService,
+  AlertService,
+  UserService,
+  ContentService
 ];
 
 type StoreType = {
@@ -62,16 +81,19 @@ type StoreType = {
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
-    HomeComponent,
+    HeaderComponent,
     LoginComponent,
+    RegisterComponent,
+    HomeComponent,
     NoContentComponent,
     XLargeDirective
   ],
   imports: [ // import Angular's modules
     BrowserModule,
+    AdminPanelModule,
     GalleryModule,
+    DataVisualsModule,
     NgbModule.forRoot(),
-    HeaderModule,       
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
@@ -79,7 +101,13 @@ type StoreType = {
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    // { provide: APP_INITIALIZER, useFactory: (config: BackendRequestClass) => () => config.load(), deps: [BackendRequestClass], multi: true }
+
+    // providers used to create fake backend
+    fakeBackendProvider,
+    MockBackend,
+    BaseRequestOptions
   ]
 })
 
