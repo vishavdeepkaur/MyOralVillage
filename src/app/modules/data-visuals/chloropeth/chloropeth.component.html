@@ -1,8 +1,22 @@
-<div class="container data-visual">
-    <div class="row">
-        <div class="col-sm-12">
-            <div>map</div>
-           <div class="chloropeth" #chloropeth></div>
-        </div>       
+<div class="container">
+    <div class="row chloropeth-container">
+        <div class="col-12">
+            <div class="chloropeth" #chloropeth></div>
+        </div>
+        <div class="col-12">
+            <div class="controls">
+                <h3>controls</h3>
+                <div class="parameter-select">
+                    <div class="dropdown-select" ngbDropdown><span>Parameter:</span>
+                        <Button class="btn btn-secondary" id="dd-parameter" ngbDropdownToggle>{{selectedParam.text}}</Button>
+                        <div class="dropdown-menu" (click)="updateSelectedParam($event)" aria-labelledby="dd-parameter">
+                            <button class="dropdown-item" *ngFor="let param of parameters; let i=index" [attr.index]="i">{{param.text}}</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

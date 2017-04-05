@@ -24,6 +24,7 @@ export class AddContentModal {
     addContentItem(event) {
         let data = {
             title: event.target.name.value,
+            source: "../../assets/img/image4.png".replace(/\//g,"\\/"),
             description: event.target.description.value,
             postedBy: this.appState.get("user").username,
             dateAdded: new Date().toLocaleDateString(),

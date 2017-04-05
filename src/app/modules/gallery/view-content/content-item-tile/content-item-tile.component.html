@@ -1,11 +1,17 @@
-<div class="cg-item-inner" (click)="setSelectedItem($event)" [class.selected-item]="selection?.contentItem?.name == data.name">
+<!--<div class="cg-item-inner" (click)="setSelectedItem($event)" [class.selected-item]="selection?.contentItem?.name == data.name">
     <img [src]="data.source" alt>
-    
+
     <div class="cg-item-info">
         {{data.name}} {{data.dateAdded}}
         <button (click)="editItem()" class="btn btn-sm btn-secondary"><span class="fa fa-pencil"></span></button>
     </div>
-    
+
+</div>-->
+
+<div class="work wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
+    <img [src]="data.source" alt>
+    <h3>{{data.name}}</h3>
+    <p>{{data.description}}</p>
 </div>
 
 

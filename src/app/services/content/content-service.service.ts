@@ -20,30 +20,36 @@ export class ContentService {
     //       }).catch(this.handleError);
     //   }
 
-    getTest(){
-        return Observable.of({test:"hello"}).delay(2000)
+    getTest() {
+        return Observable.of({ test: "hello" }).delay(2000)
     }
 
     getSmallCollection(type) {
         //   let resultType = <Theme | Category | Country>{};
-        return fakedata[type].slice(0);
+        //  return fakedata[type].slice(0);
+
+        return this.http.get("http://localhost:3004/" + type || "/api/contentItems")
+            .map((response: Response) => {
+                return <ContentItemServer[]>response.json();
+            }).catch(this.handleError);
     }
 
-    getContentItems() {
-        return fakedata.contentItems.slice(0);//.filter((item) => item.id == data.id)
+    // getContentItems() {
+    //     return fakedata.contentItems.slice(0);//.filter((item) => item.id == data.id)
+    // }
+
+
+    getContentItems(data = null) {
+        let params = new URLSearchParams();
+        if (data)
+            for (let p of Object.keys(data))
+                params.append(p, JSON.stringify(data[p]))
+
+        return this.http.get("http://localhost:3004/contentItems" || "/api/contentItems", { search: params })
+            .map((response: Response) => {
+                return <ContentItemServer[]>response.json();
+            }).catch(this.handleError);
     }
-
-
-    //   getContentItems({data}) {
-    //     let params = new URLSearchParams();
-    //     for(let p of Object.keys(data))
-    //         params.append(p,JSON.stringify(data[p]))
-
-    //     return this.http.get("/api/contentItems",{search:params})
-    //       .map((response: Response) => {
-    //         return <ContentItemServer[]>response.json();
-    //       }).catch(this.handleError);
-    //   }
 
     //   getContentItem(id: number) {
     //     return this.http.get("/api/events/" + id)
@@ -56,7 +62,7 @@ export class ContentService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        var ret = this.http.post("/api/document/new", JSON.stringify(itemData), options);
+        var ret = this.http.post("http://localhost:3004/contentItems" || "/api/document/new", JSON.stringify(itemData), options);
         return ret.map((response: Response) => {
             var returnedData = response.json();
             return returnedData;
