@@ -6,7 +6,7 @@ import { NotificationsService } from 'angular2-notifications'
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddContentModal } from './modals/add-content-modal'
 import { EditContentModal } from './modals/edit-content-modal'
-import { Observable } from 'rxjs'
+import { Observable , BehaviorSubject } from 'rxjs'
 /*
  * App Component
  * Top Level Component
@@ -51,6 +51,10 @@ export class ViewContentComponent implements OnInit {
   private subscription;
   private contentTypeParam: string;
 
+  private isLoading$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  private error = null;
+
+
   constructor(
     public appState: AppState,
     private activeRoute: ActivatedRoute,
@@ -61,9 +65,11 @@ export class ViewContentComponent implements OnInit {
 
   openAdd() {
     const modalRef = this.modalService.open(AddContentModal);
+    modalRef.componentInstance.onContentItemAdd = this.addContentItem.bind(this);
     modalRef.componentInstance.countries = this.countries;
     modalRef.componentInstance.themes = this.themes;
     modalRef.componentInstance.categories = this.categories;
+
   }
   openEdit(data) {
     const modalRef = this.modalService.open(EditContentModal);
@@ -91,12 +97,19 @@ export class ViewContentComponent implements OnInit {
       this.contentService.getSmallCollection("countries"),
       this.contentService.getContentItems()
     ]).subscribe(data => {
-        this.categories = data[0]
-        this.themes = data[1]
-        this.countries = data[2]
-        this.contentItems = data[3]
-        
-        console.log(this.categories,this.themes,this.countries,this.contentItems)
+      this.categories = data[0]
+      this.themes = data[1]
+      this.countries = data[2]
+      this.contentItems = data[3]
+
+      this.appState.set("content", {
+        categories: this.categories,
+        themes: this.themes,
+        countries: this.countries,
+        contentItems: this.contentItems
+      })
+
+      // console.log(this.categories, this.themes, this.countries, this.contentItems)
     },
       error => {
         console.log(error)
@@ -108,12 +121,6 @@ export class ViewContentComponent implements OnInit {
     // this.countries = this.contentService.getSmallCollection("countries")
     // this.contentItems = this.contentService.getContentItems();
 
-    this.appState.set("content", {
-      categories: this.categories,
-      themes: this.themes,
-      countries: this.countries,
-      contentItems: this.contentItems
-    })
 
     this.userInfo = this.appState.get("user")
 
@@ -121,9 +128,14 @@ export class ViewContentComponent implements OnInit {
 
 
   // handlers
+  typeaheadClick($event) {
+    $event.stopPropagation();
+  }
+
+
   addContentItem(itemData) {
     this.contentService.addContentItem(itemData)
-    
+
   }
 
   editItem($event) {

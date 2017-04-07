@@ -10,7 +10,7 @@ export class ContentService {
 
     constructor(private http: Http) { }
 
-
+    baseUrl = "http://localhost:3004"
 
     //   getSmallCollection(type) {
     //     //   let resultType = <Theme | Category | Country>{};
@@ -27,10 +27,10 @@ export class ContentService {
     getSmallCollection(type) {
         //   let resultType = <Theme | Category | Country>{};
         //  return fakedata[type].slice(0);
-
-        return this.http.get("http://localhost:3004/" + type || "/api/contentItems")
+        console.log('getting small collection')
+        return this.http.get(`${this.baseUrl}/${type}` || "/api/contentItems")
             .map((response: Response) => {
-                return <ContentItemServer[]>response.json();
+                return response.json();
             }).catch(this.handleError);
     }
 
@@ -45,7 +45,7 @@ export class ContentService {
             for (let p of Object.keys(data))
                 params.append(p, JSON.stringify(data[p]))
 
-        return this.http.get("http://localhost:3004/contentItems" || "/api/contentItems", { search: params })
+        return this.http.get(`${this.baseUrl}/contentItems` || "/api/contentItems", { search: params })
             .map((response: Response) => {
                 return <ContentItemServer[]>response.json();
             }).catch(this.handleError);
@@ -59,24 +59,40 @@ export class ContentService {
     //   }
 
     addContentItem(itemData: any) {
+        console.log("in add Item service", itemData)
+        debugger;
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        var ret = this.http.post("http://localhost:3004/contentItems" || "/api/document/new", JSON.stringify(itemData), options);
+        var ret = this.http.post(`${this.baseUrl}/contentItems` || "/api/document/new", JSON.stringify(itemData), options);
         return ret.map((response: Response) => {
             var returnedData = response.json();
             return returnedData;
         }).catch(this.handleError);
-
     }
 
 
-    searchSessions(searchTerm: string) {
-        return this.http.get(`/api/sessions/search?search=${searchTerm}`)
+    searchTags(searchTerm: string) {
+        return this.http.get(`${this.baseUrl}/tags`)
             .map((response: Response) => {
-                return response.json();
-            }).catch(this.handleError);
+
+                let filtered = response.json().filter((term: any, i) => {
+                    if (term.includes(searchTerm))
+                        return term.includes(searchTerm)
+                    return false;
+                })
+
+                console.log(filtered, "filtered test")
+                return filtered;
+            })
+            .catch(this.handleError);
     }
+
+    // search(terms: Observable<string>) {
+    //     return terms.debounceTime(400)
+    //         .distinctUntilChanged()
+    //         .switchMap(term => this.searchTags(term));
+    // }
 
     private handleError(error: Response) {
         console.error(error);

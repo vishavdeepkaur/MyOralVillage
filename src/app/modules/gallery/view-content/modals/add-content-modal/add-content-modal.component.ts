@@ -14,7 +14,7 @@ export class AddContentModal {
     @Input() themes;
     @Input() categories;
     @Input() tags;
-    @Output() onContentItemAdd: EventEmitter<any> = new EventEmitter();
+    @Input() onContentItemAdd;
     fileList: FileList;
 
 
@@ -22,11 +22,14 @@ export class AddContentModal {
 
 
     addContentItem(event) {
+
+        console.log(event, "event")
+
         let data = {
             title: event.target.name.value,
-            source: "../../assets/img/image4.png".replace(/\//g,"\\/"),
+            source: "../../assets/img/image4.png".replace(/\//g, "\\/"),
             description: event.target.description.value,
-            postedBy: this.appState.get("user").username,
+            postedBy: "testUser",
             dateAdded: new Date().toLocaleDateString(),
             theme: event.target.theme.value,
             category: event.target.category.value,
@@ -34,6 +37,8 @@ export class AddContentModal {
             tag: event.target.tag.value
         }
 
-        this.onContentItemAdd.emit({ contentItemData: data, files: this.fileList });
+        //this.onContentItemAdd.emit({ contentItemData: data, files: this.fileList });
+        this.onContentItemAdd(data);
+        this.activeModal.close();
     }
 }

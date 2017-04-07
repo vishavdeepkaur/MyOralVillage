@@ -1,5 +1,8 @@
 {
     "contentData": {
+        "tags": ["money", "poverty", "bills", "currency", "rupee", "phone", "place", "dataset", "art"],
+
+
         "categories": [{
                 "id": 1,
                 "name": "designs"
@@ -155,6 +158,9 @@
                     "id": 1,
                     "name": "design"
                 },
+
+
+
                 "tags": ["money", "poverty", "bills"],
                 "country": {
                     "id": 1,

@@ -1,8 +1,25 @@
- <div class="container">
+<div class="container">
     <div class="row">
+
+
+
+
         <div class="col-12">
             <h2>admin panel</h2>
+
+            <div *ngIf="isLoading$ | async">Loading data...
+                <div class="loading-pulse"></div>
+            </div>
+            <div *ngIf="!(isLoading$ | async)">
+                <h3>something should show</h3>
+                <items-editor collectionName="Categories" [collectionItems]="data.categories"></items-editor>
+                <items-editor collectionName="Themes" [collectionItems]="data.themes"></items-editor>
+                <items-editor collectionName="Countries" [collectionItems]="data.countries"></items-editor>
+            </div>
+            <div *ngIf="error">Error while loading data : {{ error }}</div>
+
+
+
         </div>
     </div>
 </div>
- 

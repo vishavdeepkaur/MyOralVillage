@@ -8,10 +8,29 @@
 
 </div>-->
 
-<div class="work wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
-    <img [src]="data.source" alt>
+<div class="cg-item-inner">
+    <div class="cg-image-wrap">
+        <img [src]="data.source" alt>
+    </div>
     <h3>{{data.name}}</h3>
     <p>{{data.description}}</p>
+    <div class="cg-item-bottom">
+        <div class="cg-meta-info"><span>{{data.dateAdded}} | {{data.postedBy?.username}}</span></div>
+        <div class="cg-controls">
+            <div class="dropdown" ngbDropdown>
+                <a class="dropdown-controls" ngbDropdownToggle>
+                    <span class="sr-only"></span>
+                    <span class="fa fa-ellipsis-v" aria-hidden="true">
+                </span></a>
+                <div class="dropdown-menu" aria-labelledby="dropdown-controls">
+                    <button class="dropdown-item">Edit</button>
+                    <button class="dropdown-item">Delete</button>
+                    <!--<Button class="dropdown-item dropdown-item-add"><span class="fa fa-plus" aria-hidden="true"></span></Button>-->
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
 
 

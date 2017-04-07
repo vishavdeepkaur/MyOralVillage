@@ -8,7 +8,8 @@ export type InternalStateType = {
 export class AppState {
 
   public _state: InternalStateType = {
-    user: null
+    user: null,
+    content: null
     // {
     //   username: "vishu",
     //   firstName: "Vishavdeep",

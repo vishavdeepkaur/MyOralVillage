@@ -6,7 +6,7 @@
 </div>
 <div class="modal-body">
 
-    <form (submit)="addContentItem($event)">
+    <form (ngSubmit)="addContentItem($event)" id="addItemForm" #addItemForm="ngForm">
 
 
         <div class="form-group">
@@ -58,6 +58,6 @@
     </form>
 </div>
 <div class="modal-footer">
-    <button type="submit" class="btn btn-secondary" (click)="activeModal.close('Close click')">Add</button>
+    <button type="submit" class="btn btn-secondary" form="addItemForm">Add</button>
     <button type="button" class="btn btn-success" (click)="activeModal.close('Close click')">Close</button>
 </div>

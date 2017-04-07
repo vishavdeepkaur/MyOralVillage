@@ -12,6 +12,7 @@ module.exports = () => {
         surveyData: JSON.parse(resultData),
         categories: contentData.contentData.categories,
         themes: contentData.contentData.themes,
+        tags: contentData.contentData.tags,
         countries: contentData.contentData.countries,
         contentItems: contentData.contentData.contentItems
     }

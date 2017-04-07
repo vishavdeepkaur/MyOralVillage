@@ -9,6 +9,7 @@ import { routes } from './admin-panel.routes'
 import { AdminPanelComponent } from './admin-panel.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeListComponent } from './home-list/home-list.component';
+import { ItemsEditorComponent } from './items-editor/items-editor.component';
 
 
 //Custom Services
@@ -24,6 +25,7 @@ import { ContentService } from '../../services'
     ],
     declarations: [
         AdminPanelComponent,
+        ItemsEditorComponent,
         HomeListComponent,
         SignupComponent
     ],
