@@ -5,11 +5,18 @@
         </div>
         <div class="col-12">
             <div class="controls">
-                <h3>controls</h3>
+                <h3>Configuration</h3>
                 <div class="parameter-select">
-                    <div class="dropdown-select" ngbDropdown><span>Parameter:</span>
+                    <div class="dropdown-select" ngbDropdown><span>Parameter for X axis:</span>
                         <Button class="btn btn-secondary" id="dd-parameter" ngbDropdownToggle>{{selectedParamX.text}}</Button>
-                        <div class="dropdown-menu" (click)="updateSelectedParam($event)" aria-labelledby="dd-parameter">
+                        <div class="dropdown-menu" (click)="updateSelectedParamX($event)" aria-labelledby="dd-parameter">
+                            <button class="dropdown-item" *ngFor="let param of parameters; let i=index" [attr.index]="i">{{param.text}}</button>
+                        </div>
+                    </div>
+
+                     <div class="dropdown-select" ngbDropdown><span>Parameter for Y axis:</span>
+                        <Button class="btn btn-secondary" id="dd-parameter" ngbDropdownToggle>{{selectedParamY.text}}</Button>
+                        <div class="dropdown-menu" (click)="updateSelectedParamY($event)" aria-labelledby="dd-parameter">
                             <button class="dropdown-item" *ngFor="let param of parameters; let i=index" [attr.index]="i">{{param.text}}</button>
                         </div>
                     </div>

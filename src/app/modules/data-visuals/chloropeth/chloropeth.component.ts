@@ -14,6 +14,7 @@ import * as topojson from 'topojson'
 })
 export class ChloropethComponent implements OnInit, OnChanges {
   @ViewChild('chloropeth') private mapContainer: ElementRef;
+  @ViewChild('tooltip') private tooltip: ElementRef;
   @Input() private data: any;
 
   private parameters;
@@ -61,6 +62,7 @@ export class ChloropethComponent implements OnInit, OnChanges {
 
 
     let element = this.mapContainer.nativeElement;
+    let tooltipEl = this.mapContainer.nativeElement;
     this.width = element.offsetWidth - this.margin.left - this.margin.right;
     this.height = element.offsetHeight - this.margin.top - this.margin.bottom;
 
@@ -147,10 +149,27 @@ export class ChloropethComponent implements OnInit, OnChanges {
       .attr('transform', `translate(180, 900)`)
       .selectAll("path")
       .data(world.features)
-      .enter().append("path")
+      .enter()
+      .append("path")
       .attr("d", path)
       .attr("fill", function (d, i) { return colorFiller(d["properties"].name) })
-      .append('div').attr('class', 'country-tooltip').text((d) => d["properties"].name)
+      // .on('mousemove', (d,e)=>{
+      //   console.log(d,e)
+
+      //   // console.log(countriesMap.get(d["properties"].name)[this.selectedParam.name])
+      //   d3.select(tooltipEl)
+      //   .attr("class","chloropeth-tooltip show")
+      //   // .text(d["properties"].name +"  " + countriesMap.get(d["properties"].name)[this.selectedParam.name])
+      //   // tooltipEl.innerText = 
+      //   //  console.log(d3.mouse(element)[0],d3.mouse(element)[1])
+      //  })
+      // .on('mouseleave', (d,e)=>{
+      //   d3.select(tooltipEl)
+      //   .attr("class","chloropeth-tooltip hidden")
+      //   // .text(d["properties"].name +"  " + countriesMap.get(d["properties"].name)[this.selectedParam.name])
+      //   // tooltipEl.innerText = 
+      //   //  console.log(d3.mouse(element)[0],d3.mouse(element)[1])
+      //  })
     // .text(function (d) { return d.rate + "%"; });
 
     // svg.append("path")

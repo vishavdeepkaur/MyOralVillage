@@ -5,8 +5,9 @@
                 <div class="loading-pulse"></div>
             </div>
             <div *ngIf="!(isLoading$ | async)">
-                <h3>something should show</h3>
+                <h3>World Data</h3>
                 <chloropeth [data]="data"></chloropeth>
+                <h3>World Scatter Plot</h3>
                 <scatter-plot [data]="data"></scatter-plot>
             </div>
             <div *ngIf="error">Error while loading data : {{ error }}</div>

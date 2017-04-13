@@ -9,60 +9,64 @@
 
 
 
-                <div class="cg-header">
-                    <!--<div class="main-controls">
-                        <div>
-                            <Button class="btn btn-success" (click)="openAdd()"><span class="fa fa-plus" aria-hidden="true"></span></Button>
-                        </div>
-                        <div>
-                            <Button class="btn btn-danger"><span class="fa fa-trash" aria-hidden="true"></span></Button>
-                        </div>
-                    </div>-->
-                    <div class="default-controls">
-                        <div class="dropdown-select" ngbDropdown>
-                            <a class="btn btn-link" id="dropdown-category" ngbDropdownToggle>Category</a>
-                            <div class="dropdown-menu" (click)="updateSelectedDropdownItem($event,'category')" aria-labelledby="dropdown-category">
-                                <button class="dropdown-item" *ngFor="let category of categories; let i=index" [attr.index]="i">{{category.name}}</button>
+                <div class="cg-header container">
+                    <div class="cg-header-top">
+                        <div class="main-controls" *ngIf="userInfo?.role != 'admin' || userInfo?.role != 'staff'">
+                            <div>
+                                <button class="btn btn-secondary" (click)="openAdd()"><span class="fa fa-plus" aria-hidden="true"></span> Add</button>
+                            </div>
+                            <!--<div>
+                                <button class="btn btn-secondary"><span class="fa fa-pencil" aria-hidden="true"></span> Edit</button>
+                            </div>-->
+                            <div>
+                                <button class="btn btn-secondary"><span class="fa fa-trash" aria-hidden="true"></span> Remove</button>
                             </div>
                         </div>
-
-
-                        <div class="dropdown-select" ngbDropdown>
-                            <a class="btn btn-link" id="dropdown-country" ngbDropdownToggle>Country</a>
-                            <div class="dropdown-menu" (click)="updateSelectedDropdownItem($event,'country')" aria-labelledby="dropdown-country">
-                                <button class="dropdown-item" *ngFor="let country of countries; let i=index" [attr.index]="i">{{country.name}}</button>
-                                <!--<Button class="dropdown-item dropdown-item-add"><span class="fa fa-plus" aria-hidden="true"></span></Button>-->
+                        <div class="default-controls">
+                            <div class="dropdown-select" ngbDropdown>
+                                <a class="btn btn-link" id="dropdown-category" ngbDropdownToggle>Category</a>
+                                <div class="dropdown-menu" (click)="updateSelectedDropdownItem($event,'category')" aria-labelledby="dropdown-category">
+                                    <button class="dropdown-item" *ngFor="let category of categories; let i=index" [attr.index]="i">{{category.name}}</button>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="dropdown-select" ngbDropdown>
-                            <a class="btn btn-link" id="dropdown-theme" ngbDropdownToggle>Theme</a>
-                            <div class="dropdown-menu" (click)="updateSelectedDropdownItem($event,'theme')" aria-labelledby="dropdown-theme">
-                                <button class="dropdown-item" *ngFor="let theme of themes; let i=index" [attr.index]="i">{{theme.name}}</button>
-                                <!--<Button class="dropdown-item dropdown-item-add"><span class="fa fa-plus" aria-hidden="true"></span></Button>-->
+
+                            <div class="dropdown-select" ngbDropdown>
+                                <a class="btn btn-link" id="dropdown-country" ngbDropdownToggle>Country</a>
+                                <div class="dropdown-menu" (click)="updateSelectedDropdownItem($event,'country')" aria-labelledby="dropdown-country">
+                                    <button class="dropdown-item" *ngFor="let country of countries; let i=index" [attr.index]="i">{{country.name}}</button>
+                                    <!--<Button class="dropdown-item dropdown-item-add"><span class="fa fa-plus" aria-hidden="true"></span></Button>-->
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="dropdown-select" ngbDropdown>
-                            <a class="btn btn-link" id="dropdown-category" ngbDropdownToggle>Sort By</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown-category">
-                                <button class="dropdown-item" (click)="setSortBy($event,'name')">Title</button>
-                                <button class="dropdown-item" (click)="setSortBy($event,'dateAdded')">Date Added</button>
+                            <div class="dropdown-select" ngbDropdown>
+                                <a class="btn btn-link" id="dropdown-theme" ngbDropdownToggle>Theme</a>
+                                <div class="dropdown-menu" (click)="updateSelectedDropdownItem($event,'theme')" aria-labelledby="dropdown-theme">
+                                    <button class="dropdown-item" *ngFor="let theme of themes; let i=index" [attr.index]="i">{{theme.name}}</button>
+                                    <!--<Button class="dropdown-item dropdown-item-add"><span class="fa fa-plus" aria-hidden="true"></span></Button>-->
+                                </div>
                             </div>
-                        </div>
 
-                        <a (click)="switchSortOrder()" class="btn btn-link"><span class="{{selection.sortAsc ? 'fa fa-sort-alpha-asc' : 'fa fa-sort-alpha-desc'}}" aria-hidden="true"></span></a>
-
-                        <div class="dropdown-select" ngbDropdown>
-                            <a class="btn btn-link" id="dropdown-filter" ngbDropdownToggle><span class="fa fa-filter" aria-hidden="true"></span></a>
-                            <div class="dropdown-menu dropdown-left" aria-labelledby="dropdown-filter">
-                                <typeahead (click)="typeaheadClick($event)"></typeahead>
-                                <button class="dropdown-item">Title</button>
+                            <div class="dropdown-select" ngbDropdown>
+                                <a class="btn btn-link" id="dropdown-category" ngbDropdownToggle>Sort By</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown-category">
+                                    <button class="dropdown-item" (click)="setSortBy($event,'name')">Title</button>
+                                    <button class="dropdown-item" (click)="setSortBy($event,'dateAdded')">Date Added</button>
+                                </div>
                             </div>
-                        </div>
 
+                            <a (click)="switchSortOrder()" class="btn btn-link"><span class="{{selection.sortAsc ? 'fa fa-sort-alpha-asc' : 'fa fa-sort-alpha-desc'}}" aria-hidden="true"></span></a>
+
+                            <div class="dropdown-select" ngbDropdown>
+                                <a class="btn btn-link" id="dropdown-filter" ngbDropdownToggle><span class="fa fa-filter" aria-hidden="true"></span></a>
+                                <div class="dropdown-menu dropdown-left" aria-labelledby="dropdown-filter">
+                                    <typeahead (click)="typeaheadClick($event)"></typeahead>
+                                    <button class="dropdown-item">Title</button>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-
                     <div class="sidebar-controls">
                         <a (click)="toggleSidebar()" class="btn btn-link"><span class="fa fa-info" aria-hidden="true"></span></a>
                     </div>

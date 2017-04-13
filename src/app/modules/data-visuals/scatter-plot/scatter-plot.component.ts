@@ -21,14 +21,13 @@ export class ScatterPlotComponent implements OnInit, OnChanges {
   private selectedParamY: any;
   private selectedParamR: any;
 
-  private margin: any = { top: 50, right: 300, bottom: 200, left: 50 };
+  private margin: any = { top: 50, right: 250, bottom: 150, left: 100 };
   private countrySet: any;
   private width: number;
   private height: number;
 
   private countries;
-  private legend;
-  private legendX;
+  private svg;
 
   private primitiveColors = { white: "#fff", whitesmoke: "whitesmoke" }
 
@@ -42,9 +41,11 @@ export class ScatterPlotComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.parameters = this.data.results.result.params;
-    this.selectedParamX = this.parameters[0]
-    this.selectedParamY = this.parameters[1]
-    this.selectedParamR = this.parameters[2]
+    this.selectedParamX = this.parameters[4]
+    this.selectedParamY = this.parameters[5]
+    this.selectedParamR = this.parameters[0]
+
+    this.data = this.data.results.result.data.slice(10, 20)
     this.createPlot();
   }
 
@@ -57,24 +58,23 @@ export class ScatterPlotComponent implements OnInit, OnChanges {
     let paramY = this.selectedParamY
     let primColors = this.primitiveColors;
     let colorFiller = this.colorFiller;
-    let data = this.data.results.result.data.slice(10,20)
+    let data = this.data
     let countriesMap = d3.map();
     this.countrySet = countriesMap;
 
+    let popMax = d3.max(data, function (d) { return +d['population']; });
     for (let item of data) {
       countriesMap.set(item["country"], item)
-      item[this.selectedParamX] = +item[this.selectedParamX]
-      item[this.selectedParamY] = +item[this.selectedParamY]
-      item[this.selectedParamR] = +item[this.selectedParamR]
+      item[this.selectedParamX.name] = parseInt(item[this.selectedParamX.name])
+      item[this.selectedParamY.name] = parseInt(item[this.selectedParamY.name])
+      item[this.selectedParamR.name] = parseInt(item[this.selectedParamR.name])
     }
 
     let element = this.plotContainer.nativeElement;
-    console.log(element.offsetWidth, element.offsetHeight);
-
     // this.width = element.offsetWidth - this.margin.left - this.margin.right;
     // this.height = element.offsetHeight - this.margin.top - this.margin.bottom;
 
-    var outerWidth = 1050,
+    var outerWidth = 1000,
       outerHeight = 600;
 
     this.width = outerWidth - this.margin.left - this.margin.right
@@ -87,9 +87,9 @@ export class ScatterPlotComponent implements OnInit, OnChanges {
     var y = d3.scaleLinear()
       .range([this.height, 0]).nice();
 
-    var xCat = this.selectedParamX.name,
-      yCat = this.selectedParamY.name,
-      rCat = this.selectedParamR.name,
+    var xCat = this.selectedParamX,
+      yCat = this.selectedParamY,
+      rCat = this.selectedParamR,
       colorCat = "country";
 
     // d3.csv("cereal.csv", function (data) {
@@ -109,13 +109,15 @@ export class ScatterPlotComponent implements OnInit, OnChanges {
     //   });
 
 
-    let xMax = d3.max(data, function (d) { return +d[xCat]; }) * 1.05,
-      xMin = d3.min(data, function (d) { return +d[xCat]; });
+    let xMax = d3.max(data, function (d) { return +d[xCat.name]; }) * 1.05,
+      xMin = d3.min(data, function (d) { return +d[xCat.name]; });
 
 
-    let yMax = d3.max(data, function (d) { return +d[yCat]; }) * 1.05,
-      yMin = d3.min(data, function (d) { return +d[yCat]; })
+    let yMax = d3.max(data, function (d) { return +d[yCat.name]; }) * 1.05,
+      yMin = d3.min(data, function (d) { return +d[yCat.name]; })
 
+    console.log(xMax, xMin, "xmax, xmin")
+    console.log(yMax, yMin, "ymax, ymin")
 
     xMin = xMin > 0 ? 0 : xMin
     yMin = yMin > 0 ? 0 : yMin;
@@ -165,7 +167,7 @@ export class ScatterPlotComponent implements OnInit, OnChanges {
     }
 
     let transform = function (d) {
-      return "translate(" + x(d[xCat]) + "," + y(d[yCat]) + ")";
+      return "translate(" + x(d[xCat.name]) + "," + y(d[yCat.name]) + ")";
     }
     var zoomBeh = d3.zoom()
       .scaleExtent([0, 500])
@@ -179,6 +181,7 @@ export class ScatterPlotComponent implements OnInit, OnChanges {
       .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")")
       .call(zoomBeh);
 
+    
     // svg.call(tip);
 
     svg.append("rect")
@@ -192,9 +195,9 @@ export class ScatterPlotComponent implements OnInit, OnChanges {
       .append("text")
       .classed("label", true)
       .attr("x", this.width - 300)
-      .attr("y", this.margin.bottom - 10)
+      .attr("y", 60)
       .style("text-anchor", "end")
-      .text(xCat);
+      .text(xCat.text);
 
     svg.append("g")
       .classed("y axis", true)
@@ -202,10 +205,11 @@ export class ScatterPlotComponent implements OnInit, OnChanges {
       .append("text")
       .classed("label", true)
       .attr("transform", "rotate(-90)")
-      .attr("y", -this.margin.left)
+      .attr("y", -this.margin.left + 30)
+      .attr("x", -this.height / 2 + 50)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text(yCat);
+      .text(yCat.text);
 
     var objects = svg.append("svg")
       .classed("objects", true)
@@ -254,10 +258,15 @@ export class ScatterPlotComponent implements OnInit, OnChanges {
       .text(function (d) { return d; });
 
     console.log(svg, "svg test");
+
   }
 
 
   updateMap() {
+    let element = this.plotContainer.nativeElement
+    let svg = element.firstChild;
+    element.removeChild(svg);
+    this.createPlot();
     // let param = this.selectedParam;
     // let colorFiller = this.colorFiller;
 
@@ -290,8 +299,13 @@ export class ScatterPlotComponent implements OnInit, OnChanges {
     return colorFade(parseInt(value[this.selectedParamX.name]) / 100)
   }
 
-  updateSelectedParam($event) {
+  updateSelectedParamX($event) {
     this.selectedParamX = this.parameters[$event.srcElement.getAttribute('index')]
+    this.updateMap()
+  }
+
+  updateSelectedParamY($event) {
+    this.selectedParamY = this.parameters[$event.srcElement.getAttribute('index')]
     this.updateMap()
   }
 

@@ -9,6 +9,14 @@
   image-rendering: crispEdges;
 }
 
+
+.scatter-plot-container text {
+  fill: black;
+  font-size: 14px
+}
+
+
+
 .axis path,
 .axis line {
   fill: none;

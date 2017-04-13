@@ -1,19 +1,24 @@
 .cg-header {
-    margin-top:10px;
+    margin-top: 10px;
 }
-.cg-header .btn-link{
+
+.cg-header .btn-link {
     text-transform: uppercase;
     font-weight: 600;
     cursor: pointer;
 }
 
+.cg-header-top {
+    display: flex;
+    justify-content: space-between;
+}
 
 .default-controls {
     display: flex;
     justify-content: flex-end;
 }
 
-.default-controls > div{
+.default-controls>div {
     margin-right: 25px;
 }
 
@@ -25,12 +30,10 @@
     margin-left: 20px;
 }
 
-.sidebar-controls{
-  display: flex;
-  justify-content: flex-end;
+.sidebar-controls {
+    display: flex;
+    justify-content: flex-end;
 }
-
-
 
 .cg-body {
     display: flex;
@@ -42,7 +45,7 @@
 
 .cg-items {
     padding: .5vw;
-    padding-top:0;
+    padding-top: 0;
     display: -ms-flexbox;
     -ms-flex-wrap: wrap;
     -ms-flex-direction: column;
@@ -61,6 +64,9 @@
     overflow: hidden;
     margin: 0 .7vw 30px .7vw;
     text-align: center;
+    -moz-box-shadow: 0px 0px 5px 1.5px rgba(25, 24, 24, 0.2);
+    -webkit-box-shadow: 0px 0px 5px 1.5px rgba(25, 24, 24, 0.2);
+    box-shadow: 0px 0px 5px 1.5px rgba(25, 24, 24, 0.2);
 }
 
 

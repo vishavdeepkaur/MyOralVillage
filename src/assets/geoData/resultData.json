@@ -5,8 +5,8 @@
             {"name":"population", "text": "Population" },
             {"name":"subscriptionsPerHundred", "text": "Subscriptions Per Hundred" },
             {"name":"Adults", "text": "Adults" },
-            {"name":"percentIlliterateWomen", "text": "Percent Illeterate Women" },
-            {"name":"percentIlliterateYouth", "text": "Percent Illeterate Youth" },
+            {"name":"percentIlliterateWomen", "text": "Percent Illiterate Women" },
+            {"name":"percentIlliterateYouth", "text": "Percent Illiterate Youth" },
             {"name":"fi", "text": "Financial Inclusion" }       
         ],
         
