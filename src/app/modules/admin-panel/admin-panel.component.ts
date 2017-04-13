@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppState } from '../../app.service';
 import { ContentService } from '../../services';
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable, BehaviorSubject } from 'rxjs'
 
 
@@ -16,16 +17,29 @@ export class AdminPanelComponent implements OnInit {
   private isLoading$: BehaviorSubject<boolean> = new BehaviorSubject(false);
   private error = null;
 
-
+  private selection = null;
 
   constructor(
     public appState: AppState,
+    public modalService: NgbModal,
     public contentService: ContentService
   ) { }
 
+  promptRemove($event, modal) {
+    console.log($event, "opening modal")
+    let {index, colName} = $event;
+
+    this.selection = { colName, name: this.data[colName][index].name || this.data[colName][index] }
+    this.modalService.open(modal);
+  }
+
+  removeItem($event) {
+    console.log("approved deletion")
+  }
+
   public ngOnInit() {
     let data = this.appState.get("content")
-    
+
     console.log('getting app state data', data)
 
     if (!data) {

@@ -7,6 +7,7 @@ import { routes } from './data-visuals.routes.config'
 
 //Custom components
 import { ChloropethComponent } from './chloropeth';
+import { ScatterPlotComponent } from './scatter-plot';
 import { VisualContainerComponent } from './visual-container';
 
 //Custom Services
@@ -22,8 +23,8 @@ import { DataVisualsService } from '../../services'
     ],
     declarations: [
         VisualContainerComponent,
-        ChloropethComponent
-
+        ChloropethComponent,
+        ScatterPlotComponent
     ],
     exports: [],
     providers: [DataVisualsService]

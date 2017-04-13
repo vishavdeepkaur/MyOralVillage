@@ -1,17 +1,15 @@
 <div class="container">
     <div class="row">
-        <div class="col-12">
-            <div *ngIf="isLoading$ | async">Loading data...
+        <div class="col-12 flex-center pad-all-30">
+            <div *ngIf="isLoading$ | async">
                 <div class="loading-pulse"></div>
             </div>
             <div *ngIf="!(isLoading$ | async)">
                 <h3>something should show</h3>
                 <chloropeth [data]="data"></chloropeth>
+                <scatter-plot [data]="data"></scatter-plot>
             </div>
-            <div *ngIf="error">Error while loading data : {{ error }}
-                <div>
-                </div>
-            </div>
+            <div *ngIf="error">Error while loading data : {{ error }}</div>
         </div>
     </div>
 </div>

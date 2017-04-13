@@ -7,7 +7,7 @@ import { Observable, Subject } from 'rxjs';
     templateUrl: './typeahead.component.html',
     styleUrls: ['./typeahead.component.css'],
 })
-export class Typeahead {
+export class TypeaheadComponent {
     searching = false;
     searchFailed = false;
   

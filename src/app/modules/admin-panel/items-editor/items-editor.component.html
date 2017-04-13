@@ -1,6 +1,16 @@
 <div class="container-fluid items-editor">
     <h3>{{collectionName}}</h3>
     <ul class="list-group row">
-        <li *ngFor="let item of collectionItems" class="list-group-item col-12 col-sm-3">{{item.name}}</li>
+        <li *ngFor="let item of collectionItems; let i = index" class="list-group-item col-12 col-sm-3" [attr.name]="item.name || item">
+            <span class="item-text">{{item.name}}</span>
+
+            <span class="item-controls">
+               <a tabindex="0" class="btn btn-link" (click)="promptEdit($event, i, collectionName)"><span class="fa fa-pencil"></span></a>
+            <a tabindex="0" class="btn btn-link" (click)="promptDelete($event, i,  collectionName)"><span class="fa fa-close"></span></a>
+            </span>
+
+
+
+        </li>
     </ul>
 </div>

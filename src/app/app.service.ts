@@ -9,7 +9,8 @@ export class AppState {
 
   public _state: InternalStateType = {
     user: null,
-    content: null
+    content: null,
+    contentObsolete: false
     // {
     //   username: "vishu",
     //   firstName: "Vishavdeep",

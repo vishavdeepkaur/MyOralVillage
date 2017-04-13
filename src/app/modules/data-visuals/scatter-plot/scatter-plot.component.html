@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row scatter-plot-container">
+        <div class="col-12">
+            <div class="scatter-plot" #scatterPlot></div>
+        </div>
+        <div class="col-12">
+            <div class="controls">
+                <h3>controls</h3>
+                <div class="parameter-select">
+                    <div class="dropdown-select" ngbDropdown><span>Parameter:</span>
+                        <Button class="btn btn-secondary" id="dd-parameter" ngbDropdownToggle>{{selectedParamX.text}}</Button>
+                        <div class="dropdown-menu" (click)="updateSelectedParam($event)" aria-labelledby="dd-parameter">
+                            <button class="dropdown-item" *ngFor="let param of parameters; let i=index" [attr.index]="i">{{param.text}}</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

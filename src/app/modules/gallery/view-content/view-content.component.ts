@@ -6,7 +6,7 @@ import { NotificationsService } from 'angular2-notifications'
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddContentModal } from './modals/add-content-modal'
 import { EditContentModal } from './modals/edit-content-modal'
-import { Observable , BehaviorSubject } from 'rxjs'
+import { Observable, BehaviorSubject } from 'rxjs'
 /*
  * App Component
  * Top Level Component
@@ -90,6 +90,7 @@ export class ViewContentComponent implements OnInit {
     //     this.contentService.getSmallCollection("categories").subscribe(result => { this.categories = result})
     // this.contentService.getSmallCollection("themes").subscribe(result => { this.themes = result})
     // this.contentService.getSmallCollection("countries").subscribe(result => { this.countries = result})
+    this.isLoading$.next(true);
 
     Observable.forkJoin([
       this.contentService.getSmallCollection("categories"),
@@ -113,6 +114,9 @@ export class ViewContentComponent implements OnInit {
     },
       error => {
         console.log(error)
+      }, () => {
+        this.isLoading$.next(false);
+        this.isLoading$.complete();
       })
 
     // Observable.forkJoin()

@@ -41,8 +41,8 @@ export class ChloropethComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.worldData = topojson.feature(this.data.data, this.data.data.objects['world-palestine-highres.geo']);
-    this.parameters = this.data.results.result.headers;
-    this.selectedParam = this.parameters[2]
+    this.parameters = this.data.results.result.params;
+    this.selectedParam = this.parameters[1]
     this.createMap();
   }
 

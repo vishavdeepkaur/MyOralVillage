@@ -1,9 +1,22 @@
+<template #removeModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Confirmation</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+        <h4>Are you sure you want to remove <b>{{selection.name}}</b> item from <b>{{selection.colName}}</b>?</h4>
+        <p>Note: Doing so would delete all the associated content items.</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="removeItem($event)">Delete</button>
+        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Cancel</button>
+    </div>
+</template>
+
 <div class="container">
     <div class="row">
-
-
-
-
         <div class="col-12">
             <h2>admin panel</h2>
 
@@ -11,10 +24,13 @@
                 <div class="loading-pulse"></div>
             </div>
             <div *ngIf="!(isLoading$ | async)">
-                <h3>something should show</h3>
-                <items-editor collectionName="Categories" [collectionItems]="data.categories"></items-editor>
-                <items-editor collectionName="Themes" [collectionItems]="data.themes"></items-editor>
-                <items-editor collectionName="Countries" [collectionItems]="data.countries"></items-editor>
+                <items-editor collectionName="Categories" (onRemove)="promptRemove($event, removeModal)" [collectionItems]="data.categories"></items-editor>
+                <items-editor collectionName="Themes" (onRemove)="promptRemove($event , removeModal)" [collectionItems]="data.themes"></items-editor>
+                <items-editor collectionName="Countries" (onRemove)="promptRemove($event, removeModal)" [collectionItems]="data.countries"></items-editor>
+
+                <div class="">
+                    <typeahead (click)="typeaheadClick($event)"></typeahead>
+                </div>
             </div>
             <div *ngIf="error">Error while loading data : {{ error }}</div>
 

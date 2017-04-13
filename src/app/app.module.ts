@@ -30,6 +30,7 @@ import { AuthenticationService, ContentService, UserService, AlertService } from
 import { AuthGuard } from './guards'
 
 // MODULES
+import { SharedModule } from './modules/shared';
 import { GalleryModule } from './modules/gallery';
 import { DataVisualsModule } from './modules/data-visuals';
 import { AdminPanelModule } from './modules/admin-panel';
@@ -48,6 +49,7 @@ import { HomeComponent } from './components/home';
 import { LoginComponent } from './components/login';
 import { RegisterComponent } from './components/register';
 import { NoContentComponent } from './components/no-content';
+
 
 
 import { XLargeDirective } from './directives/x-large';
@@ -90,6 +92,7 @@ type StoreType = {
   ],
   imports: [ // import Angular's modules
     BrowserModule,
+    SharedModule,    
     AdminPanelModule,
     GalleryModule,
     DataVisualsModule,
@@ -108,7 +111,8 @@ type StoreType = {
     fakeBackendProvider,
     MockBackend,
     BaseRequestOptions
-  ]
+  ],
+  exports:[]
 })
 
 export class AppModule {

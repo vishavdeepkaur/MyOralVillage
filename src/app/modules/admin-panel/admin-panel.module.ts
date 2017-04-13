@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared';
+
+
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { routes } from './admin-panel.routes'
@@ -21,6 +24,7 @@ import { ContentService } from '../../services'
         RouterModule,
         CommonModule,
         NgbModule,
+        SharedModule,
         RouterModule.forChild(routes)
     ],
     declarations: [

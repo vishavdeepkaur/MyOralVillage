@@ -1,6 +1,25 @@
-.list-group{
+.list-group {
     flex-direction: row;
 }
+
+
 /*.items-editor ul li{
     float:left;
 }*/
+
+.list-group-item {
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.item-controls a {
+    padding: 5px 8px;
+    margin-left: 5px;
+    color:black;
+    cursor: pointer;
+}
+
+.item-controls a:hover {
+    background-color: lightgray;
+    border-radius: 50%;
+}

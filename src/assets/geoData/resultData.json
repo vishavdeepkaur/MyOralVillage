@@ -1,8 +1,7 @@
 {
     "result":
     {
-        "headers":[
-            {"name":"country", "text": "Country" },
+        "params":[
             {"name":"population", "text": "Population" },
             {"name":"subscriptionsPerHundred", "text": "Subscriptions Per Hundred" },
             {"name":"Adults", "text": "Adults" },
