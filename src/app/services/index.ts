@@ -1,4 +1,5 @@
 export * from './content/content-service.service'
+export * from './upload-service.service'
 export * from './content/content-service.model'
 export * from './data-visuals/data-visuals-service.service'
 export * from './alert/alert.service'

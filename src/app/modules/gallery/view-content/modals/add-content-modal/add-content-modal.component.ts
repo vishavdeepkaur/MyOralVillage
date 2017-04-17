@@ -24,21 +24,24 @@ export class AddContentModal {
     addContentItem(event) {
 
         console.log(event, "event")
-
+        debugger;
         let data = {
-            title: event.target.name.value,
-            source: "../../assets/img/image4.png".replace(/\//g, "\\/"),
-            description: event.target.description.value,
-            postedBy: "testUser",
-            dateAdded: new Date().toLocaleDateString(),
-            theme: event.target.theme.value,
-            category: event.target.category.value,
-            country: event.target.country.value,
-            tag: event.target.tag.value
+            // title: event.target.name.value,
+            // source: "../../assets/img/image4.png".replace(/\//g, "\\/"),
+            // description: event.target.description.value,
+            // postedBy: "testUser1",
+            // dateAdded: new Date().toLocaleDateString(),
+            // theme: event.target.theme.value,
+            // category: event.target.category.value,
+            // country: event.target.country.value,
+            // tags: [event.target.tag.value],
+            files: event.target.elements.files.files
         }
 
         //this.onContentItemAdd.emit({ contentItemData: data, files: this.fileList });
-        this.onContentItemAdd(data);
         this.activeModal.close();
+        console.log(data)
+        this.onContentItemAdd(data);
+
     }
 }

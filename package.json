@@ -80,6 +80,8 @@
     "@angularclass/hmr": "~1.2.2",
     "@angularclass/hmr-loader": "~3.0.2",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.20",
+    "angular-2-dropdown-multiselect": "^1.0.8",
+    "angular2-http-file-upload": "^1.0.6",
     "angular2-jwt": "^0.2.0",
     "angular2-notifications": "^0.4.53",
     "core-js": "^2.4.1",

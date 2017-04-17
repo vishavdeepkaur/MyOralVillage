@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect'
 import { SharedModule } from '../shared'
 import { routes } from './gallery.routes.config'
 
@@ -28,6 +29,7 @@ import { ContentDetailsSidebar } from './view-content/content-details-sidebar';
         RouterModule,
         CommonModule,
         NgbModule,
+        MultiselectDropdownModule,
         SharedModule,
         FormsModule,
         RouterModule.forChild(routes)

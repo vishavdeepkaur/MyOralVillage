@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row bar-graph-container">
+        <div class="col-12">
+            <div class="bar-graph" #barGraph></div>
+        </div>
+        <div class="col-12">
+            <div class="controls">
+                <h3>Configuration</h3>
+                <div class="parameter-select">
+                    <div class="dropdown-select" ngbDropdown><span>Parameter for Y axis:</span>
+                        <Button class="btn btn-secondary" id="dd-parameter" ngbDropdownToggle>{{selectedParamY.text}}</Button>
+                        <div class="dropdown-menu" (click)="updateSelectedParamY($event)" aria-labelledby="dd-parameter">
+                            <button class="dropdown-item" *ngFor="let param of parameters; let i=index" [attr.index]="i">{{param.text}}</button>
+                        </div>
+                    </div>
+
+
+                    <span>Plotted Countries: </span><ss-multiselect-dropdown [options]="myOptions" [(ngModel)]="optionsModel" [settings]="mySettings" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

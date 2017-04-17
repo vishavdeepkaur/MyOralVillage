@@ -1,12 +1,13 @@
 import { Component, OnInit, Input, Output, state, trigger, animate, transition, style } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppState } from '../../../app.service';
-import { ContentService, Selection, Category, ContentItemServer, ContentItemBase, Theme, Country } from '../../../services';
+import { ContentService, UploadService, Selection, Category, ContentItemServer, ContentItemBase, Theme, Country } from '../../../services';
 import { NotificationsService } from 'angular2-notifications'
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddContentModal } from './modals/add-content-modal'
 import { EditContentModal } from './modals/edit-content-modal'
 import { Observable, BehaviorSubject } from 'rxjs'
+import { Uploader, UploadItem } from 'angular2-http-file-upload'
 /*
  * App Component
  * Top Level Component
@@ -59,6 +60,8 @@ export class ViewContentComponent implements OnInit {
     public appState: AppState,
     private activeRoute: ActivatedRoute,
     private contentService: ContentService,
+    // private uploadService: UploadService,
+    private uploadService: Uploader,
     private notificationService: NotificationsService,
     private modalService: NgbModal
   ) { }
@@ -138,8 +141,32 @@ export class ViewContentComponent implements OnInit {
 
 
   addContentItem(itemData) {
-    this.contentService.addContentItem(itemData)
+    //  this.contentService.addContentItem(itemData)
+    // this.uploadService.makeFileRequest("http://localhost:8010/api/contentItems/upload/1", [], itemData.files).subscribe((value) => console.log(value), err => console.log(err))
+    // this.uploadService.upload("http://localhost:8010/api/contentItems/upload/1", [], itemData.files).subscribe((value) => console.log(value), err => console.log(err))
 
+    let myUploadItem = new UploadItem();
+    myUploadItem.file = itemData.files[0];
+    myUploadItem.url = 'http://localhost:8010/api/contentItems/upload/1';
+    // myUploadItem.headers = { ["Content-Type"]: 'multipart/form-data' };
+    console.log(myUploadItem)
+    // myUploadItem.formData = { FormDataKey: 'Form Data Value' };  // (optional) form data can be sent with file
+
+    this.uploadService.onSuccessUpload = (item, response, status, headers) => {
+      // success callback
+      console.log("success", item, response)
+    };
+    this.uploadService.onErrorUpload = (item, response, status, headers) => {
+      // error callback
+      console.log("error", item, response)
+
+    };
+    this.uploadService.onCompleteUpload = (item, response, status, headers) => {
+      // complete callback, called regardless of success or failure
+      console.log("completed", item, response)
+
+    };
+    this.uploadService.upload(myUploadItem);
   }
 
   editItem($event) {
@@ -158,7 +185,7 @@ export class ViewContentComponent implements OnInit {
     this.notificationService.alert("sidebar state changed", this.sidebarVisible ? 'Now Visible' : 'Now Hidden');
   }
 
-  getContentItems({data}, {skip, max, sortBy, sortAsc}) {
+  getContentItems({ data }, { skip, max, sortBy, sortAsc }) {
 
   }
 

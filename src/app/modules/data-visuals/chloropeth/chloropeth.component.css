@@ -6,7 +6,7 @@
 
 .chloropeth-tooltip {
     position: absolute;
-    background: white;
+    background: rgba(1,1,1,0.4);
     left: 740px;
     top: 185px;
     min-width: 80px;

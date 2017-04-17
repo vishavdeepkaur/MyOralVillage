@@ -3,7 +3,7 @@ import * as d3 from 'd3'
 import * as d3sc from 'd3-scale-chromatic'
 import { AppState } from '../../../app.service';
 import * as topojson from 'topojson'
-
+import { IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts } from 'angular-2-dropdown-multiselect'
 @Component({
   selector: 'scatter-plot',
   styleUrls: [
@@ -32,6 +32,31 @@ export class ScatterPlotComponent implements OnInit, OnChanges {
   private primitiveColors = { white: "#fff", whitesmoke: "whitesmoke" }
 
 
+
+  private optionsModel: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  private myOptions: IMultiSelectOption[];
+  private mySettings: IMultiSelectSettings = {
+    enableSearch: true,
+    checkedStyle: 'fontawesome',
+    fixedTitle: true,
+    displayAllSelectedText: true,
+    selectionLimit: 20
+  };
+
+
+  myTexts: IMultiSelectTexts = {
+    checkAll: 'Select all',
+    uncheckAll: 'Unselect all',
+    checked: 'item selected',
+    checkedPlural: 'items selected',
+    searchPlaceholder: 'Find',
+    defaultTitle: 'Select',
+    allSelected: 'All selected',
+  };
+
+
+
+
   constructor(
     public appState: AppState
   ) {
@@ -45,7 +70,19 @@ export class ScatterPlotComponent implements OnInit, OnChanges {
     this.selectedParamY = this.parameters[5]
     this.selectedParamR = this.parameters[0]
 
-    this.data = this.data.results.result.data.slice(10, 20)
+    this.data = this.data.results.result.data;
+
+    let countriesMap = d3.map();
+    this.countrySet = countriesMap;
+    for (let item of this.data) {
+      countriesMap.set(item["country"], item)
+      item[this.selectedParamX.name] = parseInt(item[this.selectedParamX.name])
+      item[this.selectedParamY.name] = parseInt(item[this.selectedParamY.name])
+      item[this.selectedParamR.name] = parseInt(item[this.selectedParamR.name])
+    }
+
+    this.myOptions = this.countrySet.keys().map((key, index) => { return { id: index, name: key } });
+  
     this.createPlot();
   }
 
@@ -53,22 +90,19 @@ export class ScatterPlotComponent implements OnInit, OnChanges {
     console.log("changed param")
   }
 
+  onChange($event){
+    this.updatePlot();
+  }
+
+
   createPlot() {
     let paramX = this.selectedParamX;
     let paramY = this.selectedParamY
     let primColors = this.primitiveColors;
     let colorFiller = this.colorFiller;
-    let data = this.data
-    let countriesMap = d3.map();
-    this.countrySet = countriesMap;
-
+    let data = this.optionsModel.sort().map((value, index) => this.data[value])
     let popMax = d3.max(data, function (d) { return +d['population']; });
-    for (let item of data) {
-      countriesMap.set(item["country"], item)
-      item[this.selectedParamX.name] = parseInt(item[this.selectedParamX.name])
-      item[this.selectedParamY.name] = parseInt(item[this.selectedParamY.name])
-      item[this.selectedParamR.name] = parseInt(item[this.selectedParamR.name])
-    }
+
 
     let element = this.plotContainer.nativeElement;
     // this.width = element.offsetWidth - this.margin.left - this.margin.right;
@@ -181,7 +215,7 @@ export class ScatterPlotComponent implements OnInit, OnChanges {
       .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")")
       .call(zoomBeh);
 
-    
+
     // svg.call(tip);
 
     svg.append("rect")
@@ -262,7 +296,7 @@ export class ScatterPlotComponent implements OnInit, OnChanges {
   }
 
 
-  updateMap() {
+  updatePlot() {
     let element = this.plotContainer.nativeElement
     let svg = element.firstChild;
     element.removeChild(svg);
@@ -301,12 +335,12 @@ export class ScatterPlotComponent implements OnInit, OnChanges {
 
   updateSelectedParamX($event) {
     this.selectedParamX = this.parameters[$event.srcElement.getAttribute('index')]
-    this.updateMap()
+    this.updatePlot()
   }
 
   updateSelectedParamY($event) {
     this.selectedParamY = this.parameters[$event.srcElement.getAttribute('index')]
-    this.updateMap()
+    this.updatePlot()
   }
 
 }

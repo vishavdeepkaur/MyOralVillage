@@ -14,12 +14,14 @@
                         </div>
                     </div>
 
-                     <div class="dropdown-select" ngbDropdown><span>Parameter for Y axis:</span>
+                    <div class="dropdown-select" ngbDropdown><span>Parameter for Y axis:</span>
                         <Button class="btn btn-secondary" id="dd-parameter" ngbDropdownToggle>{{selectedParamY.text}}</Button>
                         <div class="dropdown-menu" (click)="updateSelectedParamY($event)" aria-labelledby="dd-parameter">
                             <button class="dropdown-item" *ngFor="let param of parameters; let i=index" [attr.index]="i">{{param.text}}</button>
                         </div>
                     </div>
+
+                   <span>Plotted Countries: </span><ss-multiselect-dropdown [options]="myOptions" [(ngModel)]="optionsModel" [settings]="mySettings" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
 
                 </div>
             </div>

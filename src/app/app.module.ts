@@ -24,7 +24,8 @@ import { MockBackend, MockConnection } from '@angular/http/testing';
 import { BaseRequestOptions } from '@angular/http';
 
 // Service Providers
-import { AuthenticationService, ContentService, UserService, AlertService } from './services';
+import { AuthenticationService, ContentService, UserService, AlertService, UploadService } from './services';
+import { Uploader } from 'angular2-http-file-upload'
 
 //Guards
 import { AuthGuard } from './guards'
@@ -67,7 +68,9 @@ const APP_PROVIDERS = [
   AuthenticationService,
   AlertService,
   UserService,
-  ContentService
+  UploadService,
+  ContentService,
+  Uploader
 ];
 
 type StoreType = {
@@ -92,7 +95,7 @@ type StoreType = {
   ],
   imports: [ // import Angular's modules
     BrowserModule,
-    SharedModule,    
+    SharedModule,
     AdminPanelModule,
     GalleryModule,
     DataVisualsModule,
@@ -112,7 +115,7 @@ type StoreType = {
     MockBackend,
     BaseRequestOptions
   ],
-  exports:[]
+  exports: []
 })
 
 export class AppModule {

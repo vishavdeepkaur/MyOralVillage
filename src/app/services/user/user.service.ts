@@ -16,7 +16,9 @@ export class UserService {
     }
 
     create(user: User) {
-        return this.http.post('/api/users', user, this.jwt()).map((response: Response) => response.json());
+        user.roles = ["ADMIN"]
+        // JSON.stringify(user) 
+        return this.http.post('http://localhost:8010/api/auth/register',     JSON.stringify(user), this.jwt()).map((response: Response) => response.json());
     }
 
     update(user: User) {
@@ -32,9 +34,11 @@ export class UserService {
     private jwt() {
         // create authorization header with jwt token
         let currentUser = JSON.parse(localStorage.getItem('user'));
+        let headers = new Headers({ 'Content-Type': 'application/json' });
         if (currentUser && currentUser.token) {
-            let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token });
-            return new RequestOptions({ headers: headers });    
+            headers.append('Authorization', 'Bearer ' + currentUser.token);
         }
+        return new RequestOptions({ headers: headers });
+
     }
 }

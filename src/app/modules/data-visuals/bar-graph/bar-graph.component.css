@@ -1,0 +1,24 @@
+.bar-graph-container {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+}
+
+.bar-graph-container rect {
+  fill:brown;
+  image-rendering: crispEdges;
+}
+
+
+.bar-graph-container text {
+  fill: black;
+  font-size: 14px
+}
+
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.1);
+  image-rendering: crispEdges;
+}
